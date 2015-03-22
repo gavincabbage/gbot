@@ -11,7 +11,8 @@ def index():
 @app.route('/feed')
 def feed():
     if app.config['CAMERA_ENABLED']:
-        return Response(app.camera.generate_feed(app.camera.Camera()),
+        from app.camera import generate_feed, Camera
+        return Response(generate_feed(Camera()),
                         mimetype='multipart/x-mixed-replace; boundary=frame')
     else:
         return str()
