@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.environ['GBOT_ROOT_DIR'])
+sys.path.append('/home/gbot/gbot')
 
 from app import app
 
