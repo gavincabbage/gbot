@@ -1,0 +1,5 @@
+DEBUG = True
+
+PORT = 8080
+
+CAMERA_ENABLED = False

@@ -1,7 +1,18 @@
+# This code adapted from an article written by Miguel Grinberg that can be
+# found here: http://blog.miguelgrinberg.com/post/video-streaming-with-flask
+
+
 import time
 import io
 import threading
 import picamera
+
+
+def generate_feed(camera):
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
 class Camera(object):
