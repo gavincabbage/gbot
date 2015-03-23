@@ -1,3 +1,3 @@
 DEBUG = True
 
-CAMERA_ENABLED = True
+CAMERA_ENABLED = False
