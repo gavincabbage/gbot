@@ -3,18 +3,44 @@
 
 	<head>
 
-		<title>Video Streaming Demonstration</title>
+		<title>gbot</title>
 
 		<link rel="stylesheet" type="text/css" href="static/css/custom.css">
+		<link rel="stylesheet" type="text/css" href="static/css/layout.css">
 
 	</head>
 
 	<body>
 
 		<div id="content">
-			<h1>Video Streaming Demonstration</h1>
-    		<img id="stream-window" src="{{ url_for('feed') }}">
+
+			<div id="header">
+				<h1>gbot</h1>
+			</div>
+
+			<div id="control-panel">
+				Control panel<br>
+				<button id="forward_button" onclick="move('forward')">Forward</button>
+				<button id="back_button" onclick="move('back')">Back</button>
+				<button id="left_button" onclick="move('left')">Left</button>
+				<button id="right_button" onclick="move('right')">Right</button>
+				<button id="stop_button" onclick="move('stop')">Stop</button>
+			</div>
+
+			<div id="stream-panel">
+    			<img id="stream-window" src="{{ url_for('feed') }}">
+			</div>
+
+			<div id="footer">
+				Botton right foot panel
+				<button id="look_left_button" onclick="look('left')">Look Left</button>
+				<button id="look_center_button" onclick="look('center')">Look Center</button>
+				<button id="look_right_button" onclick="look('right')">Look Right</button>
+			</div>
+
 		</div>
+
+		<script src="static/js/app.js"></script>
 
 	</body>
 

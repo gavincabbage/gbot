@@ -1,4 +1,4 @@
-
+*.pyc
 /sketch/build-uno
 /venv
 .idea
