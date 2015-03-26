@@ -16,3 +16,15 @@ def feed():
                         mimetype='multipart/x-mixed-replace; boundary=frame')
     else:
         return str()
+
+
+@app.route('/look/<string:direction>')
+def look(direction):
+    return str(), 200
+    pass
+
+
+@app.route('/move/<string:direction>')
+def move(direction):
+    return str(), 200
+    pass
