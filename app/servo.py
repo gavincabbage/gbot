@@ -1,22 +1,37 @@
 import RPi.GPIO as gpio
 import time
 
-gpio.setmode(gpio.BOARD)
-gpio.setup(7, gpio.OUT)
 
-p = gpio.PWM(7,50)
+class CameraServo(object):
 
-p.start(7.5)
-time.sleep(1)
-p.ChangeDutyCycle(12.5)
-time.sleep(1)
-p.ChangeDutyCycle(2.5)
-time.sleep(1)
-p.ChangeDutyCycle(7.5)
-time.sleep(1)
-	
-p.stop()
-gpio.cleanup()
-exit(0)
+    CENTER = 7.5
+    LEFT = 5.0
+    RIGHT = 10.0
 
+    def __init__(self):
+        gpio.setmode(gpio.BOARD)
+        gpio.setup(7, gpio.OUT)
+        self.pwm = gpio.PWM(7,50)
+        self.pwm.start(self.CENTER)
 
+    def test(self):
+        time.sleep(1)
+        self.pwm.ChangeDutyCycle(self.LEFT)
+        time.sleep(1)
+        self.pwm.ChangeDutyCycle(self.RIGHT)
+        time.sleep(1)
+        self.pwm.ChangeDutyCycle(self.CENTER)
+        time.sleep(1)
+
+    def look_center(self):
+        self.pwm.start(self.CENTER)
+
+    def look_left(self):
+        self.pwm.start(self.LEFT)
+
+    def look_right(self):
+        self.pwm.start(self.RIGHT)
+
+    def cleanup(self):
+        self.pwm.stop()
+        gpio.cleanup()

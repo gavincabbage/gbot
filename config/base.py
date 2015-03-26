@@ -1,3 +1,4 @@
 DEBUG = True
 
-CAMERA_ENABLED = False
+EXTERNALS_ENABLED = False
+
