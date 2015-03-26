@@ -11,7 +11,7 @@ Robotics project using Arduino and Raspberry Pi - currently a work in progress.
 
 ## Parts List (so far)
 
-* 1xArduino Uno R3
+* 1x Arduino Uno R3
 * 1x Raspberry Pi B+
 * 2x 28BYJ-48 Stepper Motors
 * 2x ULN2003 Driver Modules
