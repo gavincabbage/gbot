@@ -28,24 +28,18 @@ void setup()
 
 void loop()
 {
-  unsigned int pingTime = sonar.ping();
-  unsigned int pingDistance = (pingTime / US_ROUNDTRIP_CM);
-  Serial.print("pingDistance = ");
-  Serial.print(pingDistance);
-  Serial.print("\n");
+  // unsigned int pingTime = sonar.ping();
+  // unsigned int pingDistance = (pingTime / US_ROUNDTRIP_CM);
+  // Serial.print("pingDistance = ");
+  // Serial.print(pingDistance);
+  // Serial.print("\n");
+  // delay(50);
   
-//  if (pingDistance < 5)
-//  {
-//    stepper.stop();
-//  }
-//  else
-//  {
-//    stepper.moveTo(-stepper.currentPosition());
-//  }
-//  
+  if (stepper.distanceToGo() == 0) 
+  {
+    stepper.moveTo(-stepper.currentPosition());
+  }
   stepper.run();
-  
-  delay(50); // suggested for pings
 }
 
 
