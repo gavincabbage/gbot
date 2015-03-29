@@ -23,7 +23,8 @@ void loop()
 {
   if (Serial.available())
   {
-    switch (Serial.parseInt())
+    int result = Serial.parseInt();
+    switch (result)
     {
       case MOVE_FORWARD:
         Serial.println("MOVE_FORWARD"); break;
@@ -38,9 +39,9 @@ void loop()
       case PAN_LEFT:
         Serial.println("PAN_LEFT"); break;
       case PAN_RIGHT:
-        Serial.println("LEFT"); break;
+        Serial.println("PAN_LEFT"); break;
       default:
-        Serial.println("DEFAULT"); break;
+        Serial.println(result); break;
     }
   }
 
