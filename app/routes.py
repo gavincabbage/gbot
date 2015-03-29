@@ -25,16 +25,6 @@ def look(direction):
 
     if app.config['EXTERNALS_ENABLED']:
         from app import camera_servo
-        try:
-            camera_servo.__dict__['look_'+direction]
-        except KeyError:
-            pass
-        # if direction == "center":
-        #     camera_servo.look_center()
-        # elif direction == "left":
-        #     camera_servo.look_left()
-        # elif direction == "right":
-        #     camera_servo.look_right()
 
     return str(), 200
 
