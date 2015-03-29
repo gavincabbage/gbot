@@ -1,4 +1,6 @@
-BUG = True
+DEBUG = True
 
 EXTERNALS_ENABLED = True
+
+STREAM_TIMEOUT = 3600
 

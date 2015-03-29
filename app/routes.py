@@ -25,21 +25,15 @@ def look(direction):
 
     if app.config['EXTERNALS_ENABLED']:
         from app import serial
-	serial.look(direction)
-	print serial.readline()
+        serial.look(direction)
 
-    return str(), 200
+	return str(), 200
 
 
 @app.route('/move/<string:direction>')
 def move(direction):
-
-    if app.config['EXTERNAL_ENABLED']:
-	from app import serial
-	serial.move(direction)
-	print serial.readlin()
+    if app.config['EXTERNALS_ENABLED']:
+        from app import serial
+        serial.move(direction)
 
     return str(), 200
-
-
-
