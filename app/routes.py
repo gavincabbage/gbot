@@ -37,7 +37,7 @@ def move(direction):
     if app.config['EXTERNAL_ENABLED']:
 	from app import serial
 	serial.move(direction)
-	print serial.readline()
+	print serial.readlin()
 
     return str(), 200
 
