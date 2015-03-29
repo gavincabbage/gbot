@@ -26,6 +26,7 @@ def look(direction):
     if app.config['EXTERNALS_ENABLED']:
         from app import serial
 	serial.look(direction)
+	print serial.readline()
 
     return str(), 200
 
@@ -36,6 +37,7 @@ def move(direction):
     if app.config['EXTERNAL_ENABLED']:
 	from app import serial
 	serial.move(direction)
+	print serial.readline()
 
     return str(), 200
 

@@ -1,4 +1,4 @@
-from serial import Serial
+import serial
 
 class SerialController(object):
 
@@ -11,7 +11,7 @@ class SerialController(object):
 	PAN_RIGHT = 22
 
 	def __init__(self, device=str(), rate=9600, timeout=1):
-		self.connection = Serial(device, rate, timeout)
+		self.connection = serial.Serial(device, rate, timeout=timeout)
 
 	def move(self, direction):
 		if direction == "forward":
@@ -35,4 +35,4 @@ class SerialController(object):
 		return self.connection.readlin()
 
 	def _write(self, code):
-		self.connection.write(str(chr(code))
+		self.connection.write(str(chr(code)))
