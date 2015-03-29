@@ -1,4 +1,4 @@
-DEBUG = True
+BUG = True
 
-EXTERNALS_ENABLED = False
+EXTERNALS_ENABLED = True
 

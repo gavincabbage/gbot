@@ -24,7 +24,8 @@ def feed():
 def look(direction):
 
     if app.config['EXTERNALS_ENABLED']:
-        from app import camera_servo
+        from app import serial
+	serial.look(direction)
 
     return str(), 200
 
@@ -32,4 +33,11 @@ def look(direction):
 @app.route('/move/<string:direction>')
 def move(direction):
 
+    if app.config['EXTERNAL_ENABLED']:
+	from app import serial
+	serial.move(direction)
+
     return str(), 200
+
+
+

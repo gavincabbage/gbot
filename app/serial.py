@@ -31,5 +31,8 @@ class SerialController(object):
 		elif direction == "right":
 			self._write(self.PAN_RIGHT)
 
+	def readline(self):
+		return self.connection.readlin()
+
 	def _write(self, code):
 		self.connection.write(str(chr(code))
