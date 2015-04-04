@@ -4,7 +4,7 @@ Robotics project using Arduino and Raspberry Pi - currently a work in progress.
 
 ## Planned Features
 
-- [x] Web Interface with video stream
+- [x] Web Interface with video feed served by Raspberry Pi
 - [x] Camera pan with servo
 - [x] Precise movement control (forward, back, rotate left and right) with stepper motors
 - [ ] Distance sensing and collision detection
@@ -20,4 +20,5 @@ Robotics project using Arduino and Raspberry Pi - currently a work in progress.
 * 1x Servo Motor (SG90)
 * 1x Raspberry Pi Camera Module
 * 1x HC-SR04 Ultrasonic distance sensor (HC-SR04)
-* Power supply, wheels, chassis, etc.
+* 1x Battery pack (4xAA)
+* Homemade balsa chassis
