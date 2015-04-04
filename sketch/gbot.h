@@ -9,11 +9,11 @@
 #define SERVO_PIN         10
 
 #define SERIAL_SPEED      9600
-#define HALFSTEP          8
-#define TARGET            20000
+#define RIGHT_TARGET      20000
+#define LEFT_TARGET       -20000
 #define SPEED             500.0
 #define MAX_SPEED         1000.0
-#define ACCELERATION      100.0
+#define ACCELERATION      10000.0
 #define SERVO_CENTER      90
 #define SERVO_LEFT        135
 #define SERVO_RIGHT       45
@@ -23,6 +23,8 @@
 #define MOVE_BACK         11
 #define MOVE_LEFT         12
 #define MOVE_RIGHT        13
+#define MOVE_STOP		  14
+
 #define PAN_CENTER        20
 #define PAN_LEFT          21
 #define PAN_RIGHT         22
