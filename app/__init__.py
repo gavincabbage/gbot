@@ -1,4 +1,4 @@
-__all__ = ['app', 'camera', 'serial_controller']
+__all__ = ['app', 'serial_controller']
 
 
 from os import getenv

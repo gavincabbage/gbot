@@ -59,6 +59,6 @@ class Camera(object):
 
                 # if there hasn't been any clients asking for frames in
                 # the last 10 seconds stop the thread
-                if time.time() - cls.last_access > app.config['STREAM_TIMEOUT']:
+                if time.time() - cls.last_access > app.config['FEED_TIMEOUT']:
                     break
         cls.thread = None
