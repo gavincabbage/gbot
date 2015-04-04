@@ -7,12 +7,16 @@ class SerialController(object):
     BACK = 11
     LEFT = 12
     RIGHT = 13
+    STOP = 14
     PAN_CENTER = 20
     PAN_LEFT = 21
     PAN_RIGHT = 22
 
     def __init__(self, device=str(), rate=9600, timeout=1):
-        self.connection = serial.Serial(device, rate, timeout=timeout)
+        self.device = device
+        self.rate = rate
+        self.timeout = timeout
+        self.connection = serial.Serial(self.device, self.rate, timeout=self.timeout)
 
     def move(self, direction):
         if direction == "forward":
@@ -23,6 +27,8 @@ class SerialController(object):
             self._write(self.LEFT)
         elif direction == "right":
             self._write(self.RIGHT)
+        elif direction == "stop":
+            self._write(self.STOP)
 
     def look(self, direction):
         if direction == "center":

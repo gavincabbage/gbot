@@ -14,7 +14,7 @@ app.config.from_pyfile(config_file)
 camera_servo, serial = None, None
 if app.config['EXTERNALS_ENABLED']:
     from app.serial_controller import SerialController
-    serial = SerialController('/dev/ttyACM1')
+    serial = SerialController('/dev/ttyACM0')
 
 
 from app.routes import *

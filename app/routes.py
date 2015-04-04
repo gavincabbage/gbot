@@ -12,7 +12,7 @@ def index():
 @app.route('/feed')
 def feed():
 
-    if app.config['EXTERNALS_ENABLED']:
+    if app.config['CAMERA_ENABLED']:
         from app.camera import generate_feed, Camera
         return Response(generate_feed(Camera()),
                         mimetype='multipart/x-mixed-replace; boundary=frame')
