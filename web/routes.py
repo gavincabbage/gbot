@@ -1,6 +1,6 @@
 from flask import render_template
 
-from app import app
+from web import app, serial
 
 
 @app.route('/', methods=['GET'])
@@ -12,11 +12,8 @@ def index():
 @app.route('/look/<string:direction>')
 def look(direction):
 
-    if app.config['EXTERNALS_ENABLED']:
-        from app import serial
+    if serial:
         serial.look(direction)
-    else:
-        print "PRETEND_TO_LOOK"
 
     return str(), 200
 
@@ -24,10 +21,7 @@ def look(direction):
 @app.route('/move/<string:direction>')
 def move(direction):
 
-    if app.config['EXTERNALS_ENABLED']:
-        from app import serial
+    if serial:
         serial.move(direction)
-    else:
-        print "PRETEND_TO_MOVE"
 
     return str(), 200

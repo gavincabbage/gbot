@@ -1,8 +1,8 @@
-__all__ = ['camera']
+__all__ = ['app']
 
 
 from os import getenv
-from flask import Flask, render_template, Response
+from flask import Flask
 
 
 app = Flask(__name__)
@@ -11,12 +11,4 @@ config_file = getenv('GBOT_ROOT_DIR') + '/config/base.py'
 app.config.from_pyfile(config_file)
 
 
-@app.route('/feed')
-def feed():
-
-    if app.config['CAMERA_ENABLED']:
-        from feed.camera import generate_feed, Camera
-        return Response(generate_feed(Camera()),
-                        mimetype='multipart/x-mixed-replace; boundary=frame')
-    else:
-        return str(), 200
+import feed.routes

@@ -1,4 +1,4 @@
-__all__ = ['app', 'serial_controller']
+__all__ = ['app']
 
 
 from os import getenv
@@ -11,10 +11,10 @@ app = Flask(__name__)
 config_file = getenv('GBOT_ROOT_DIR') + '/config/base.py'
 app.config.from_pyfile(config_file)
 
-camera_servo, serial = None, None
+serial = None
 if app.config['EXTERNALS_ENABLED']:
-    from app.serial_controller import SerialController
-    serial = SerialController('/dev/ttyACM0')
+    from externals.serial import SerialController
+    serial = SerialController(app.config['SERIAL_DEVICE'])
 
 
-from app.routes import *
+from web.routes import *

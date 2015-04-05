@@ -16,7 +16,8 @@ class SerialController(object):
         self.device = device
         self.rate = rate
         self.timeout = timeout
-        self.connection = serial.Serial(self.device, self.rate, timeout=self.timeout)
+        self.connection = serial.Serial(
+            self.device, self.rate, timeout=self.timeout)
 
     def move(self, direction):
         if direction == "forward":
