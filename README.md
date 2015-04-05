@@ -4,18 +4,21 @@ Robotics project using Arduino and Raspberry Pi - currently a work in progress.
 
 ## Planned Features
 
-* Web interface with video stream
-* Video pan using servo
-* Movement forwards and backwards, on-axis rotation
-* Distance sensing and collision detection
+- [x] Web Interface with video feed served by Raspberry Pi
+- [x] Camera pan with servo
+- [x] Precise movement control (forward, back, rotate left and right) with stepper motors
+- [ ] Distance sensing and collision detection
+- [ ] Autonomous and Interactive modes
+- [ ] Battery power for all components
 
-## Parts List (so far)
+## Parts Used (so far)
 
 * 1x Arduino Uno R3
-* 1x Raspberry Pi B+
-* 2x 28BYJ-48 Stepper Motors
-* 2x ULN2003 Driver Modules
-* 1x SG90 Servo
+* 1x Raspberry Pi model B
+* 2x Stepper Motors (28BYJ-48)
+* 2x Stepper Driver Modules (ULN2003)
+* 1x Servo Motor (SG90)
 * 1x Raspberry Pi Camera Module
-* 1x HC-SR04 Ultrasonic distance sensor
-* Power supply, wheels, chassis, etc.
+* 1x HC-SR04 Ultrasonic distance sensor (HC-SR04)
+* 1x Battery pack (4xAA)
+* Homemade balsa chassis

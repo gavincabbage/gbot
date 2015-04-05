@@ -22,35 +22,38 @@ void setup()
 
 void loop()
 {
-  switch(motorMode)
-  {
-    case MOVE_FORWARD:
-      leftMotor.move(LEFT_TARGET);
-      rightMotor.move(RIGHT_TARGET);
-      leftMotor.run();
-      rightMotor.run();
-      break;
-    case MOVE_BACK:
-      leftMotor.move(-LEFT_TARGET);
-      rightMotor.move(-RIGHT_TARGET);
-      leftMotor.run();
-      rightMotor.run();
-      break;
-    case MOVE_LEFT:
-      leftMotor.move(-LEFT_TARGET);
-      rightMotor.move(RIGHT_TARGET);
-      leftMotor.run();
-      rightMotor.run();
-      break;
-    case MOVE_RIGHT:
-      leftMotor.move(LEFT_TARGET);
-      rightMotor.move(-RIGHT_TARGET);
-      leftMotor.run();
-      rightMotor.run();
-      break;
-    case MOVE_STOP:
-      break;
-  }
+  // switch(motorMode)
+  // {
+  //   case MOVE_FORWARD:
+  //     leftMotor.move(LEFT_TARGET);
+  //     rightMotor.move(RIGHT_TARGET);
+  //     leftMotor.run();
+  //     rightMotor.run();
+  //     break;
+  //   case MOVE_BACK:
+  //     leftMotor.move(-LEFT_TARGET);
+  //     rightMotor.move(-RIGHT_TARGET);
+  //     leftMotor.run();
+  //     rightMotor.run();
+  //     break;
+  //   case MOVE_LEFT:
+  //     leftMotor.move(-LEFT_TARGET);
+  //     rightMotor.move(RIGHT_TARGET);
+  //     leftMotor.run();
+  //     rightMotor.run();
+  //     break;
+  //   case MOVE_RIGHT:
+  //     leftMotor.move(LEFT_TARGET);
+  //     rightMotor.move(-RIGHT_TARGET);
+  //     leftMotor.run();
+  //     rightMotor.run();
+  //     break;
+  //   case MOVE_STOP:
+  //     break;
+  // }
+
+  leftMotor.runSpeed();
+  rightMotor.runSpeed();
 
   if (Serial.available())
   {
@@ -58,26 +61,34 @@ void loop()
     switch (result)
     {
       case MOVE_FORWARD:
+        leftMotor.setSpeed(SPD_LEFT_FORWARD);
+        rightMotor.setSpeed(SPD_RIGHT_FORWARD);
         motorMode = MOVE_FORWARD; break;
       case MOVE_BACK:
+        leftMotor.setSpeed(SPD_LEFT_BACK);
+        rightMotor.setSpeed(SPD_RIGHT_BACK);
         motorMode = MOVE_BACK; break;
       case MOVE_LEFT:
+        leftMotor.setSpeed(SPD_LEFT_LEFT);
+        rightMotor.setSpeed(SPD_RIGHT_LEFT);
         motorMode = MOVE_LEFT; break;
       case MOVE_RIGHT:
+        leftMotor.setSpeed(SPD_LEFT_RIGHT);
+        rightMotor.setSpeed(SPD_RIGHT_RIGHT);
         motorMode = MOVE_RIGHT; break;
       case MOVE_STOP:
-        leftMotor.stop();
-        rightMotor.stop();
+        leftMotor.setSpeed(SPD_STOP);
+        rightMotor.setSpeed(SPD_STOP);
         motorMode = MOVE_STOP; 
         break;
       case PAN_CENTER:
-        //servo.write(SERVO_CENTER);
+        servo.write(SERVO_CENTER);
         break;
       case PAN_LEFT:
-        //servo.write(SERVO_LEFT);
+        servo.write(SERVO_LEFT);
         break;
       case PAN_RIGHT:
-        //servo.write(SERVO_RIGHT);
+        servo.write(SERVO_RIGHT);
         break;
       default:
         break;
@@ -127,9 +138,7 @@ void loop()
 void setupMotors() 
 {
   leftMotor.setMaxSpeed(MAX_SPEED);
-  leftMotor.setAcceleration(ACCELERATION);
-  leftMotor.setSpeed(SPEED);
+  leftMotor.setSpeed(SPD_STOP);
   rightMotor.setMaxSpeed(MAX_SPEED);
-  rightMotor.setAcceleration(ACCELERATION);
-  rightMotor.setSpeed(SPEED);
+  rightMotor.setSpeed(SPD_STOP);
 }
