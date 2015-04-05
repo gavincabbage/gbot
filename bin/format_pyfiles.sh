@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 AUTOPEP8=$GBOT_ROOT_DIR/venv/bin/autopep8
 
