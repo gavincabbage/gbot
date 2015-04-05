@@ -1,6 +1,8 @@
 # gbot
 
-Robotics project using Arduino and Raspberry Pi - currently a work in progress.
+Robotics project using Arduino and Raspberry Pi. Currently a work in progress.
+
+[Check out the wiki!](https://github.com/gavincabbage/gbot/wiki)
 
 ## Planned Features
 
