@@ -13,7 +13,7 @@ app.config.from_pyfile(config_file)
 
 serial = None
 if app.config['EXTERNALS_ENABLED']:
-    from externals.serial import SerialController
+    from externals.serial_controller import SerialController
     serial = SerialController(app.config['SERIAL_DEVICE'])
 
 
