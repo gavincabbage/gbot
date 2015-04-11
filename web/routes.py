@@ -1,6 +1,6 @@
 from flask import render_template
 
-from web import app, serial_controller
+from web import app, serial_controller, distance_sensor
 
 
 @app.route('/', methods=['GET'])
@@ -30,4 +30,8 @@ def move(direction):
 @app.route('/distance')
 def distance():
 
-    pass
+    if distance_sensor:
+        result = distance_sensor.sense()
+        return str(result), 200
+
+    return "42.00", 200

@@ -24,3 +24,21 @@ function look(direction)
 {
     simple_command("look", direction);
 }
+
+function distance()
+{
+    //var url = "/" + command + "/" + direction;
+    var url = "/distance"
+    var xmlHttp = new XMLHttpRequest();
+
+    xmlHttp.onreadystatechange = function()
+    {
+        if (xmlHttp.readyState==4) {
+
+            console.log(url + " : " + xmlHttp.status + " : " + xmlHttp.responseText);
+        }
+    }
+
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send();
+}
