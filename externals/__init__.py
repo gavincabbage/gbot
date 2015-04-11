@@ -1,1 +1,1 @@
-__all__ = ['camera', 'serial']
+__all__ = ['camera', 'serial_controller', 'distance_sensor']
