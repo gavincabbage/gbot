@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
- 
+
 class DistanceSensor(object):
 
     CENTIMETER_COEFF = 17150

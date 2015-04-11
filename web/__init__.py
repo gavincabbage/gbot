@@ -12,7 +12,7 @@ config_file = getenv('GBOT_ROOT_DIR') + '/config/base.py'
 app.config.from_pyfile(config_file)
 
 
-serial_controller, distance_sensor = None
+serial_controller, distance_sensor = None, None
 if app.config['EXTERNALS_ENABLED']:
 
     from externals.serial_controller import SerialController
