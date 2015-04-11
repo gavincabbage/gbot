@@ -39,7 +39,7 @@ class DistanceSensor(object):
 
     def _trigger_sensor(self):
 
-        time.sleep(0.1)
+        time.sleep(1)
         GPIO.output(self.trig_pin, True)
         time.sleep(0.00001)
         GPIO.output(self.trig_pin, False)
