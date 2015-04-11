@@ -16,12 +16,15 @@ class DistanceSensor(object):
         GPIO.setup(self.echo_pin, GPIO.IN)
         GPIO.output(self.trig_pin, False)
 
+    def __del__(self):
+
+        GPIO.cleanup()
+
     def sense(self):
 
         self._trigger_sensor()
         pulse_duration = self._measure_pulse_duration()
         distance = round(pulse_duration * self.CENTIMETER_COEFF, 2)
-        GPIO.cleanup()
 
         return distance
 
