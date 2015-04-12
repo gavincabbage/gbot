@@ -9,6 +9,7 @@ AccelStepper rightMotor(AccelStepper::HALF4WIRE, RM_PIN_1, RM_PIN_3, RM_PIN_2, R
 Servo servo;
 long previousMillis = 0;
 int motorMode = MOVE_STOP;
+int servoDirection = SERVO_CENTER;
 
 void setupMotors();
 
@@ -33,37 +34,61 @@ void loop()
       case MOVE_FORWARD:
         leftMotor.setSpeed(SPD_LEFT_FORWARD);
         rightMotor.setSpeed(SPD_RIGHT_FORWARD);
-        motorMode = MOVE_FORWARD; break;
+        motorMode = MOVE_FORWARD;
+        break;
       case MOVE_BACK:
         leftMotor.setSpeed(SPD_LEFT_BACK);
         rightMotor.setSpeed(SPD_RIGHT_BACK);
-        motorMode = MOVE_BACK; break;
+        motorMode = MOVE_BACK;
+        break;
       case MOVE_LEFT:
         leftMotor.setSpeed(SPD_LEFT_LEFT);
         rightMotor.setSpeed(SPD_RIGHT_LEFT);
-        motorMode = MOVE_LEFT; break;
+        motorMode = MOVE_LEFT;
+        break;
       case MOVE_RIGHT:
         leftMotor.setSpeed(SPD_LEFT_RIGHT);
         rightMotor.setSpeed(SPD_RIGHT_RIGHT);
-        motorMode = MOVE_RIGHT; break;
+        motorMode = MOVE_RIGHT;
+        break;
       case MOVE_STOP:
         leftMotor.setSpeed(SPD_STOP);
         rightMotor.setSpeed(SPD_STOP);
         motorMode = MOVE_STOP; 
         break;
       case PAN_CENTER:
-        servo.write(SERVO_CENTER);
+        servo_center();
         break;
       case PAN_LEFT:
-        servo.write(SERVO_LEFT);
+        servo_left();
         break;
       case PAN_RIGHT:
-        servo.write(SERVO_RIGHT);
+        servo_right();
         break;
       default:
         break;
     }
   }
+}
+
+void servo_left()
+{
+  servoDirection = servoDirection + SERVO_SETP > SERVO_LEFT_MAX ?
+                   SERVO_LEFT_MAX : servoDirection + SERVO_STEP;
+  servo.write(servoDirection);
+}
+
+void servo_right()
+{
+  servoDirection = servoDirection - SERVO_SETP > SERVO_RIGHT_MAX ?
+                   SERVO_RIGHT_MAX : servoDirection - SERVO_STEP;
+  servo.write(servoDirection);
+}
+
+servo_center()
+{
+  servoDirection = SERVO_CENTER;
+  servo.write(servoDirection);
 }
 
 void setupMotors() 
