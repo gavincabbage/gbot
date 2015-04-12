@@ -19,6 +19,13 @@ if app.config['SERIAL_ENABLED']:
     serial_controller = SerialController(app.config['SERIAL_DEVICE'])
 
 
+i2c_controller = None
+if app.config['I2C_ENABLED']:
+
+    from externals.i2c_controller import I2CController
+    i2c_controller = I2CController()
+
+
 distance_sensor = None
 if app.config['DISTANCE_SENSOR_ENABLED']:
 
