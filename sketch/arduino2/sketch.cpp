@@ -1,10 +1,11 @@
-#include <Arduino.h>
+// arduino2/sketch.cpp
+// servo and led subsystem
 
 #include <Wire.h>
 
-#define SLAVE_ADDRESS 0x04
-int number = 0;
-int state = 0;
+#include "../gbot.h"
+
+#define SLAVE_ADDRESS 0x05;
 
 void receiveData(int byteCount);
 void sendData();
@@ -112,7 +113,7 @@ void sendData(){
 //       case MOVE_STOP:
 //         leftMotor.setSpeed(SPD_STOP);
 //         rightMotor.setSpeed(SPD_STOP);
-//         motorMode = MOVE_STOP; 
+//         motorMode = MOVE_STOP;
 //         break;
 //       case PAN_CENTER:
 //         servo_center();
@@ -149,7 +150,7 @@ void sendData(){
 //   servo.write(servoDirection);
 // }
 
-// void setup_motors() 
+// void setup_motors()
 // {
 //   leftMotor.setMaxSpeed(MAX_SPEED);
 //   leftMotor.setSpeed(SPD_STOP);

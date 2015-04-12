@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 #define LM_PIN_1          3      // IN1, driver 1
 #define LM_PIN_2          4      // IN2, driver 1
 #define LM_PIN_3          5      // IN3, driver 1
@@ -35,3 +37,5 @@
 #define PAN_CENTER        20
 #define PAN_LEFT          21
 #define PAN_RIGHT         22
+
+#define STATUS_OK         42
