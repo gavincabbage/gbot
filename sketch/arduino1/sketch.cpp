@@ -6,7 +6,7 @@
 
 #include "../gbot.h"
 
-#define SLAVE_ADDRESS 0x04;
+#define SLAVE_ADDRESS 0x04
 
 AccelStepper leftMotor(AccelStepper::HALF4WIRE, LM_PIN_1, LM_PIN_3, LM_PIN_2, LM_PIN_4);
 AccelStepper rightMotor(AccelStepper::HALF4WIRE, RM_PIN_1, RM_PIN_3, RM_PIN_2, RM_PIN_4);
@@ -63,15 +63,6 @@ void receiveData(int byteCount)
          rightMotor.setSpeed(SPD_STOP);
          motorMode = MOVE_STOP;
          break;
-       case PAN_CENTER:
-         servo_center();
-         break;
-       case PAN_LEFT:
-         servo_left();
-         break;
-       case PAN_RIGHT:
-         servo_right();
-         break;
        default:
          break;
      }
@@ -81,4 +72,12 @@ void receiveData(int byteCount)
 void sendData()
 {
     Wire.write(status);
+}
+
+void setup_motors()
+{
+  leftMotor.setMaxSpeed(MAX_SPEED);
+  leftMotor.setSpeed(SPD_STOP);
+  rightMotor.setMaxSpeed(MAX_SPEED);
+  rightMotor.setSpeed(SPD_STOP);
 }
