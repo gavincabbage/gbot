@@ -33,40 +33,40 @@ void loop()
 
 void receiveData(int byteCount)
 {
-   while (Wire.available())
+   //while (Wire.available())
+   //{
+   int result = Wire.read();
+   switch (result)
    {
-     int result = Wire.read();
-     switch (result)
-     {
-       case MOVE_FORWARD:
-         leftMotor.setSpeed(SPD_LEFT_FORWARD);
-         rightMotor.setSpeed(SPD_RIGHT_FORWARD);
-         motorMode = MOVE_FORWARD;
-         break;
-       case MOVE_BACK:
-         leftMotor.setSpeed(SPD_LEFT_BACK);
-         rightMotor.setSpeed(SPD_RIGHT_BACK);
-         motorMode = MOVE_BACK;
-         break;
-       case MOVE_LEFT:
-         leftMotor.setSpeed(SPD_LEFT_LEFT);
-         rightMotor.setSpeed(SPD_RIGHT_LEFT);
-         motorMode = MOVE_LEFT;
-         break;
-       case MOVE_RIGHT:
-         leftMotor.setSpeed(SPD_LEFT_RIGHT);
-         rightMotor.setSpeed(SPD_RIGHT_RIGHT);
-         motorMode = MOVE_RIGHT;
-         break;
-       case MOVE_STOP:
-         leftMotor.setSpeed(SPD_STOP);
-         rightMotor.setSpeed(SPD_STOP);
-         motorMode = MOVE_STOP;
-         break;
-       default:
-         break;
-     }
+     case MOVE_FORWARD:
+       leftMotor.setSpeed(SPD_LEFT_FORWARD);
+       rightMotor.setSpeed(SPD_RIGHT_FORWARD);
+       motorMode = MOVE_FORWARD;
+       break;
+     case MOVE_BACK:
+       leftMotor.setSpeed(SPD_LEFT_BACK);
+       rightMotor.setSpeed(SPD_RIGHT_BACK);
+       motorMode = MOVE_BACK;
+       break;
+     case MOVE_LEFT:
+       leftMotor.setSpeed(SPD_LEFT_LEFT);
+       rightMotor.setSpeed(SPD_RIGHT_LEFT);
+       motorMode = MOVE_LEFT;
+       break;
+     case MOVE_RIGHT:
+       leftMotor.setSpeed(SPD_LEFT_RIGHT);
+       rightMotor.setSpeed(SPD_RIGHT_RIGHT);
+       motorMode = MOVE_RIGHT;
+       break;
+     case MOVE_STOP:
+       leftMotor.setSpeed(SPD_STOP);
+       rightMotor.setSpeed(SPD_STOP);
+       motorMode = MOVE_STOP;
+       break;
+     default:
+       break;
    }
+   //}
 }
 
 void sendData()
