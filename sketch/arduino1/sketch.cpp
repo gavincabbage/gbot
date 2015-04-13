@@ -1,26 +1,21 @@
 // arduino1/sketch.cpp
 // stepper motor subsystem
 
-#include <Wire.h>
-#include <AccelStepper.h>
-
 #include "../gbot.h"
-
-#define SLAVE_ADDRESS 0x04
 
 AccelStepper leftMotor(AccelStepper::HALF4WIRE, LM_PIN_1, LM_PIN_3, LM_PIN_2, LM_PIN_4);
 AccelStepper rightMotor(AccelStepper::HALF4WIRE, RM_PIN_1, RM_PIN_3, RM_PIN_2, RM_PIN_4);
 int motorMode = MOVE_STOP;
 int status = STATUS_OK;
 
-void setup_motors();
 void receiveData(int byteCount);
 void sendData();
+void setup_motors();
 
 void setup()
 {
     setup_motors();
-    Wire.begin(SLAVE_ADDRESS);
+    Wire.begin(ARDUINO1_ADDR);
     Wire.onReceive(receiveData);
     Wire.onRequest(sendData);
 }
