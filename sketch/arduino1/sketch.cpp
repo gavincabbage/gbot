@@ -1,6 +1,8 @@
 // arduino1/sketch.cpp
 // stepper motor subsystem
 
+#include <Wire.h>
+
 #include "../gbot.h"
 
 AccelStepper leftMotor(AccelStepper::HALF4WIRE, LM_PIN_1, LM_PIN_3, LM_PIN_2, LM_PIN_4);
