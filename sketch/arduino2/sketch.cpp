@@ -5,23 +5,25 @@
 
 #include "../gbot.h"
 
-Servo servo;
-int servoDirection = SERVO_CENTER;
+Servo servo_x, servo_y;
+int servo_x_direction = SERVO_X_CENTER;
+int servo_y_direction = SERVO_Y_CENTER
 int status = STATUS_OK;
 
-void receiveData(int);
-void sendData();
+void receive_data(int);
+void send_data();
 void servo_left();
 void servo_right();
 void servo_center();
+void servo_move();
 
 void setup()
 {
     servo.attach(SERVO_PIN);
     servo.write(SERVO_CENTER);
     Wire.begin(ARDUINO2_ADDR);
-    Wire.onReceive(receiveData);
-    Wire.onRequest(sendData);
+    Wire.onReceive(receive_data);
+    Wire.onRequest(send_data);
 }
 
 void loop()
@@ -29,7 +31,7 @@ void loop()
     delay(100);
 }
 
-void receiveData(int byteCount)
+void receive_data(int byteCount)
 {
     while (Wire.available())
     {
@@ -48,27 +50,41 @@ void receiveData(int byteCount)
     }
 }
 
-void sendData()
+void send_data()
 {
     Wire.write(status);
 }
 
 void servo_left()
 {
-    servoDirection = servoDirection + SERVO_STEP > SERVO_LEFT_MAX ?
-                     SERVO_LEFT_MAX : servoDirection + SERVO_STEP;
-    servo.write(servoDirection);
+    servo_move(servo_x, servo_x.read() + SERVO_STEP, SERVO_LEFT_MAX);
 }
 
 void servo_right()
 {
-    servoDirection = servoDirection - SERVO_STEP > SERVO_RIGHT_MAX ?
-                     SERVO_RIGHT_MAX : servoDirection - SERVO_STEP;
-    servo.write(servoDirection);
+    servo_move(servo_x, servo_x.read() - SERVO_STEP, SERVO_RIGHT_MAX);
+}
+
+void servo_up()
+{
+    servo_move(servo_y, servo_y.read() + SERVO_STEP, SERVO_UP_MAX);
+}
+
+void servo_down()
+{
+    servo_move(servo_y, servo_y.read() - SERVO_STEP, SERVO_DOWN_MAX);
+}
+
+void servo_move(Servo servo, int newDirection, int max)
+{
+    newDirection = newDirection > max ? max : newDirection;
+    servo.write(newDirection);
 }
 
 void servo_center()
 {
-    servoDirection = SERVO_CENTER;
-    servo.write(servoDirection);
+    servo_x_direction = SERVO_X_CENTER;
+    servo_y_direction = SERVO_Y_CENTER;
+    servo_x.write(servo_x_direction);
+    servo_y.write(servo_y_direction);
 }

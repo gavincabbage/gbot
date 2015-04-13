@@ -6,9 +6,9 @@
 
 #include "../gbot.h"
 
-AccelStepper leftMotor(AccelStepper::HALF4WIRE, LM_PIN_1, LM_PIN_3, LM_PIN_2, LM_PIN_4);
-AccelStepper rightMotor(AccelStepper::HALF4WIRE, RM_PIN_1, RM_PIN_3, RM_PIN_2, RM_PIN_4);
-int motorMode = MOVE_STOP;
+AccelStepper left_motor(AccelStepper::HALF4WIRE, LM_PIN_1, LM_PIN_3, LM_PIN_2, LM_PIN_4);
+AccelStepper right_motor(AccelStepper::HALF4WIRE, RM_PIN_1, RM_PIN_3, RM_PIN_2, RM_PIN_4);
+int motor_mode = MOVE_STOP;
 int status = STATUS_OK;
 
 void move_forward();
@@ -17,25 +17,25 @@ void move_left();
 void move_right();
 void move_stop();
 void move(int, int, int);
-void receiveData(int);
-void sendData();
+void receive_data(int);
+void send_data();
 void setup_motors();
 
 void setup()
 {
     setup_motors();
     Wire.begin(ARDUINO1_ADDR);
-    Wire.onReceive(receiveData);
-    Wire.onRequest(sendData);
+    Wire.onReceive(receive_data);
+    Wire.onRequest(send_data);
 }
 
 void loop()
 {
-    leftMotor.runSpeed();
-    rightMotor.runSpeed();
+    left_motor.runSpeed();
+    right_motor.runSpeed();
 }
 
-void receiveData(int byteCount)
+void receive_data(int byteCount)
 {
     while (Wire.available())
     {
@@ -87,20 +87,20 @@ void move_stop()
 
 void move(int left_direction, int right_direction, int mode)
 {
-    leftMotor.setSpeed(left_direction);
-    rightMotor.setSpeed(right_direction);
-    motorMode = mode;
+    left_motor.setSpeed(left_direction);
+    right_motor.setSpeed(right_direction);
+    motor_mode = mode;
 }
 
-void sendData()
+void send_data()
 {
     Wire.write(status);
 }
 
 void setup_motors()
 {
-    leftMotor.setMaxSpeed(MAX_SPEED);
-    leftMotor.setSpeed(SPD_STOP);
-    rightMotor.setMaxSpeed(MAX_SPEED);
-    rightMotor.setSpeed(SPD_STOP);
+    left_motor.setMaxSpeed(MAX_SPEED);
+    left_motor.setSpeed(SPD_STOP);
+    right_motor.setMaxSpeed(MAX_SPEED);
+    right_motor.setSpeed(SPD_STOP);
 }
