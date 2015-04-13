@@ -9,7 +9,7 @@ Servo servo;
 int servoDirection = SERVO_CENTER;
 int status = STATUS_OK;
 
-void receiveData(int byteCount);
+void receiveData(int);
 void sendData();
 void servo_left();
 void servo_right();

@@ -16,8 +16,8 @@ void move_backward();
 void move_left();
 void move_right();
 void move_stop();
-void move();
-void receiveData(int byteCount);
+void move(int, int, int);
+void receiveData(int);
 void sendData();
 void setup_motors();
 
@@ -85,7 +85,7 @@ void move_stop()
     move(SPD_STOP, SPD_STOP, MOVE_STOP);
 }
 
-void move(left_direction, right_direction, mode)
+void move(int left_direction, int right_direction, int mode)
 {
     leftMotor.setSpeed(left_direction);
     rightMotor.setSpeed(right_direction);
