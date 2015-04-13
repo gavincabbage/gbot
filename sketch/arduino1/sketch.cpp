@@ -8,6 +8,12 @@ AccelStepper rightMotor(AccelStepper::HALF4WIRE, RM_PIN_1, RM_PIN_3, RM_PIN_2, R
 int motorMode = MOVE_STOP;
 int status = STATUS_OK;
 
+void move_forward();
+void move_backward();
+void move_left();
+void move_right();
+void move_stop();
+void move();
 void receiveData(int byteCount);
 void sendData();
 void setup_motors();
@@ -28,40 +34,59 @@ void loop()
 
 void receiveData(int byteCount)
 {
-   //while (Wire.available())
-   //{
-   int result = Wire.read();
-   switch (result)
-   {
-     case MOVE_FORWARD:
-       leftMotor.setSpeed(SPD_LEFT_FORWARD);
-       rightMotor.setSpeed(SPD_RIGHT_FORWARD);
-       motorMode = MOVE_FORWARD;
-       break;
-     case MOVE_BACK:
-       leftMotor.setSpeed(SPD_LEFT_BACK);
-       rightMotor.setSpeed(SPD_RIGHT_BACK);
-       motorMode = MOVE_BACK;
-       break;
-     case MOVE_LEFT:
-       leftMotor.setSpeed(SPD_LEFT_LEFT);
-       rightMotor.setSpeed(SPD_RIGHT_LEFT);
-       motorMode = MOVE_LEFT;
-       break;
-     case MOVE_RIGHT:
-       leftMotor.setSpeed(SPD_LEFT_RIGHT);
-       rightMotor.setSpeed(SPD_RIGHT_RIGHT);
-       motorMode = MOVE_RIGHT;
-       break;
-     case MOVE_STOP:
-       leftMotor.setSpeed(SPD_STOP);
-       rightMotor.setSpeed(SPD_STOP);
-       motorMode = MOVE_STOP;
-       break;
-     default:
-       break;
-   }
-   //}
+    while (Wire.available())
+    {
+        switch (Wire.read())
+        {
+        case MOVE_FORWARD:
+            move_forward();
+            break;
+        case MOVE_BACK:
+            move_right();
+            break;
+        case MOVE_LEFT:
+            move_left();
+            break;
+        case MOVE_RIGHT:
+            move_right();
+            break;
+        case MOVE_STOP:
+            move_stop();
+            break;
+        }
+    }
+}
+
+void move_forward()
+{
+    move(SPD_LEFT_FORWARD, SPD_RIGHT_FORWARD, MOVE_FORWARD);
+}
+
+void move_back()
+{
+    move(SPD_LEFT_BACK, SPD_RIGHT_BACK, MOVE_BACK);
+}
+
+void move_left()
+{
+    move(SPD_LEFT_LEFT, SPD_RIGHT_LEFT, MOVE_LEFT);
+}
+
+void move_right()
+{
+    move(SPD_LEFT_RIGHT, SPD_RIGHT_RIGHT, MOVE_RIGHT);
+}
+
+void move_stop()
+{
+    move(SPD_STOP, SPD_STOP, MOVE_STOP);
+}
+
+void move(left_direction, right_direction, mode)
+{
+    leftMotor.setSpeed(left_direction);
+    rightMotor.setSpeed(right_direction);
+    motorMode = mode;
 }
 
 void sendData()
@@ -71,8 +96,8 @@ void sendData()
 
 void setup_motors()
 {
-  leftMotor.setMaxSpeed(MAX_SPEED);
-  leftMotor.setSpeed(SPD_STOP);
-  rightMotor.setMaxSpeed(MAX_SPEED);
-  rightMotor.setSpeed(SPD_STOP);
+    leftMotor.setMaxSpeed(MAX_SPEED);
+    leftMotor.setSpeed(SPD_STOP);
+    rightMotor.setMaxSpeed(MAX_SPEED);
+    rightMotor.setSpeed(SPD_STOP);
 }
