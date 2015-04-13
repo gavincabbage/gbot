@@ -12,7 +12,7 @@ int motor_mode = MOVE_STOP;
 int status = STATUS_OK;
 
 void move_forward();
-void move_backward();
+void move_back();
 void move_left();
 void move_right();
 void move_stop();
@@ -45,7 +45,7 @@ void receive_data(int byteCount)
             move_forward();
             break;
         case MOVE_BACK:
-            move_right();
+            move_back();
             break;
         case MOVE_LEFT:
             move_left();
