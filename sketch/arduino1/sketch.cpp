@@ -2,6 +2,7 @@
 // stepper motor subsystem
 
 #include <Wire.h>
+#include <AccelStepper.h>
 
 #include "../gbot.h"
 

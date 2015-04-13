@@ -1,6 +1,4 @@
 #include <Arduino.h>
-#include <Servo.h>
-#include <AccelStepper.h>
 
 #define LM_PIN_1          3      // IN1, driver 1
 #define LM_PIN_2          4      // IN2, driver 1
