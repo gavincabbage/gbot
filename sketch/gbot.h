@@ -1,4 +1,7 @@
 #include <Arduino.h>
+#include <Wire.h>
+#include <Servo.h>
+#include <AccelStepper.h>
 
 #define LM_PIN_1          3      // IN1, driver 1
 #define LM_PIN_2          4      // IN2, driver 1
@@ -10,7 +13,9 @@
 #define RM_PIN_4          10     // IN4, driver 2
 #define SERVO_PIN         11
 
-#define SERIAL_SPEED      9600
+#define ARDUINO1_ADDR     0x04
+#define ARDUINO2_ADDR     0x05
+
 #define SERVO_CENTER      90
 #define SERVO_LEFT_MAX    160
 #define SERVO_RIGHT_MAX   20

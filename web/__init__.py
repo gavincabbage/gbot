@@ -12,13 +12,6 @@ config_file = getenv('GBOT_ROOT_DIR') + '/config/base.py'
 app.config.from_pyfile(config_file)
 
 
-serial_controller = None
-if app.config['SERIAL_ENABLED']:
-
-    from externals.serial_controller import SerialController
-    serial_controller = SerialController(app.config['SERIAL_DEVICE'])
-
-
 i2c_controller = None
 if app.config['I2C_ENABLED']:
 
