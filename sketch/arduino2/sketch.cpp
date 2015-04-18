@@ -21,8 +21,10 @@ void servo_move(Servo, int, int);
 
 void setup()
 {
-    servo.attach(SERVO_PIN);
-    servo.write(SERVO_CENTER);
+    servo_x.attach(SERVO_X_PIN);
+    servo_y.attach(SERVO_Y_PIN);
+    servo_x.write(SERVO_CENTER);
+    servo_y.write(SERVO_CENTER);
     Wire.begin(ARDUINO2_ADDR);
     Wire.onReceive(receive_data);
     Wire.onRequest(send_data);

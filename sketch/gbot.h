@@ -1,14 +1,15 @@
 #include <Arduino.h>
 
-#define LM_PIN_1          3      // IN1, driver 1
-#define LM_PIN_2          4      // IN2, driver 1
-#define LM_PIN_3          5      // IN3, driver 1
-#define LM_PIN_4          6      // IN4, driver 1
-#define RM_PIN_1          7      // IN1, driver 2
-#define RM_PIN_2          8      // IN2, driver 2
-#define RM_PIN_3          9      // IN3, driver 2
-#define RM_PIN_4          10     // IN4, driver 2
-#define SERVO_PIN         11
+#define LM_PIN_1          2      // IN1, driver 1
+#define LM_PIN_2          3      // IN2, driver 1
+#define LM_PIN_3          4      // IN3, driver 1
+#define LM_PIN_4          5      // IN4, driver 1
+#define RM_PIN_1          6      // IN1, driver 2
+#define RM_PIN_2          7      // IN2, driver 2
+#define RM_PIN_3          8      // IN3, driver 2
+#define RM_PIN_4          9      // IN4, driver 2
+#define SERVO_X_PIN       10
+#define SERVO_Y_PIN       11
 
 #define ARDUINO1_ADDR     0x04
 #define ARDUINO2_ADDR     0x05
