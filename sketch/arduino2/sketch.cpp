@@ -7,7 +7,7 @@
 
 Servo servo_x, servo_y;
 int servo_x_direction = SERVO_CENTER;
-int servo_y_direction = SERVO_CENTER
+int servo_y_direction = SERVO_CENTER;
 int status = STATUS_OK;
 
 void receive_data(int);
