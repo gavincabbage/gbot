@@ -14,8 +14,10 @@ void receive_data(int);
 void send_data();
 void servo_left();
 void servo_right();
+void servo_up();
+void servo_down();
 void servo_center();
-void servo_move();
+void servo_move(Servo, int, int);
 
 void setup()
 {
