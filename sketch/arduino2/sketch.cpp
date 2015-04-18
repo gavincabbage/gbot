@@ -1,6 +1,7 @@
 // arduino2/sketch.cpp
 // servo subsystem
 
+#include <Wire.h>
 #include <Servo.h>
 
 #include "../gbot.h"
