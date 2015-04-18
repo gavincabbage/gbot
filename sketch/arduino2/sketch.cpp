@@ -6,8 +6,8 @@
 #include "../gbot.h"
 
 Servo servo_x, servo_y;
-int servo_x_direction = SERVO_X_CENTER;
-int servo_y_direction = SERVO_Y_CENTER
+int servo_x_direction = SERVO_CENTER;
+int servo_y_direction = SERVO_CENTER
 int status = STATUS_OK;
 
 void receive_data(int);
@@ -83,8 +83,8 @@ void servo_move(Servo servo, int newDirection, int max)
 
 void servo_center()
 {
-    servo_x_direction = SERVO_X_CENTER;
-    servo_y_direction = SERVO_Y_CENTER;
+    servo_x_direction = SERVO_CENTER;
+    servo_y_direction = SERVO_CENTER;
     servo_x.write(servo_x_direction);
     servo_y.write(servo_y_direction);
 }
