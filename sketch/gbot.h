@@ -42,5 +42,7 @@
 #define PAN_CENTER        20
 #define PAN_LEFT          21
 #define PAN_RIGHT         22
+#define PAN_UP            23
+#define PAN_DOWN          24
 
 #define STATUS_OK         42

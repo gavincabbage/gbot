@@ -51,6 +51,12 @@ void receive_data(int byteCount)
         case PAN_RIGHT:
             servo_right();
             break;
+        case PAN_UP:
+            servo_up();
+            break;
+        case PAN_DOWN:
+            servo_down();
+            break;
         }
     }
 }
@@ -88,8 +94,6 @@ void servo_move(Servo servo, int newDirection, int max)
 
 void servo_center()
 {
-    servo_x_direction = SERVO_CENTER;
-    servo_y_direction = SERVO_CENTER;
-    servo_x.write(servo_x_direction);
-    servo_y.write(servo_y_direction);
+    servo_x.write(SERVO_CENTER);
+    servo_y.write(SERVO_CENTER);
 }

@@ -17,7 +17,9 @@ class I2CController(object):
     looks = {
         "center": 20,
         "left": 21,
-        "right": 22
+        "right": 22,
+        "up": 23,
+        "down": 24
     }
 
     def __init__(self):
