@@ -21,20 +21,20 @@ gbot_logfile="/tmp/gbot_log.txt"
 
 log()
 {
-    echo "$1" >> ${gbot_logfile} 2>&1
+    echo ${gbot_logfile}": $1" >> ${gbot_logfile} 2>&1
 }
 
 start()
 {
-    log ${gbot_logfile}": start"
+    log "starting..."
     ${GBOT_ROOT_DIR}/bin/gbotd.sh >> ${gbot_logfile} 2>&1 &
 }
 
 stop()
 {
-    log ${gbot_logfile}": stop"
+    log "stopping..."
     killall gbotd.sh >> ${gbot_logfile} 2>&1
-    killall gunicorn
+    killall gunicorn >> ${gbot_logfile} 2>&1
 }
 
 case "$1" in
@@ -45,7 +45,7 @@ case "$1" in
         stop
         ;;
     restart)
-        log ${gbot_logfile}": restart"
+        log "restarting.."
         stop
         start
         ;;
