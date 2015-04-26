@@ -26,13 +26,13 @@ log()
 
 start()
 {
-    log "${initfile}: start"
+    log ${gbot_init_logfile}": start"
     ${GBOT_ROOT_DIR}/bin/gbotd.sh >> ${gbot_init_logfile} 2>&1
 }
 
 stop()
 {
-    log "${initfile}: stop"
+    log ${gbot_init_logfile}": stop"
     killall gbotd.sh >> ${gbot_init_logfile} 2>&1
     killall gunicorn
 }
@@ -45,7 +45,7 @@ case "$1" in
         stop
         ;;
     restart)
-        log "${initfile}: restart"
+        log ${gbot_init_logfile}": restart"
         stop
         start
         ;;
