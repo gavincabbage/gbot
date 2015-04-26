@@ -14,11 +14,11 @@
 #define ARDUINO1_ADDR     0x04
 #define ARDUINO2_ADDR     0x05
 
-#define SERVO_LEFT_MAX   160
-#define SERVO_RIGHT_MAX  20
+#define SERVO_LEFT_MAX    160
+#define SERVO_RIGHT_MAX   20
 #define SERVO_CENTER      90
-#define SERVO_UP_MAX     160
-#define SERVO_DOWN_MAX   70
+#define SERVO_UP_MAX      160
+#define SERVO_DOWN_MAX    70
 #define SERVO_STEP        10
 #define SERVO_INTERVAL    5000
 
