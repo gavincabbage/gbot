@@ -2,10 +2,10 @@
 
 ### BEGIN INIT INFO
 # Provides:          gbot
-# Required-Start:    $remote_fs $syslog
-# Required-Stop:     $remote_fs $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
+# Required-Start:    $local_fs $remote_fs $syslog $network $time
+# Required-Stop:     $local_fs $remote_fs $syslog $network $time
+# Default-Start:     3 4 5
+# Default-Stop:      0 1 2 6
 # Short-Description: gbot initscript
 # Description:       This file should be named to 'gbot' placed in /etc/init.d.
 ### END INIT INFO
