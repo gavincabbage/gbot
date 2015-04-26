@@ -16,13 +16,13 @@ function start
 {
     echo "Starting gbot"
     echo "TEST FILE CONTENT" > /tmp/testfile.txt
-    $GBOT_ROOT_DIR/bin/gbot.sh
+    $GBOT_ROOT_DIR/bin/gbotd.sh
 }
 
 function stop
 {
     echo "Stopping gbot"
-    killall $GBOT_ROOT_DIR/bin/gbot.sh
+    killall $GBOT_ROOT_DIR/bin/gbotd.sh
 }
 
 case "$1" in
