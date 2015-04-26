@@ -32,7 +32,8 @@ start()
 stop()
 {
     log "${initfile}: stop"
-    killall ${gbot_root_dir}/bin/gbotd.sh >> ${gbot_init_logfile} 2>&1
+    killall gbotd.sh >> ${gbot_init_logfile} 2>&1
+    killall gunicorn
 }
 
 case "$1" in
