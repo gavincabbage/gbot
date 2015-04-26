@@ -27,7 +27,7 @@ log()
 start()
 {
     log "${initfile}: start"
-    ${gbot_root_dir}/bin/gbotd.sh >> ${gbot_init_logfile} 2>&1
+    ${GBOT_ROOT_DIR}/bin/gbotd.sh >> ${gbot_init_logfile} 2>&1
 }
 
 stop()
