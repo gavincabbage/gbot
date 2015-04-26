@@ -15,6 +15,7 @@ export GBOT_ROOT_DIR=/home/gbot/gbot
 case "$1" in
     start)
         echo "Starting gbot"
+        echo "TEST FILE CONTENT" > /tmp/testfile.txt
         $GBOT_ROOT_DIR/bin/run_gunicorn.sh
         ;;
     stop)
