@@ -10,5 +10,5 @@ cp $GBOT_INIT/gbot.sh $INIT_DIR/gbot
 
 chmod 777 $INIT_DIR/gbot
 
-update-rc.d $INIT_DIR/gbot defaults
+update-rc.d gbot defaults
 
