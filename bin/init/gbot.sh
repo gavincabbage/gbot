@@ -12,15 +12,29 @@
 
 export GBOT_ROOT_DIR=/home/gbot/gbot
 
+function start
+{
+    echo "Starting gbot"
+    echo "TEST FILE CONTENT" > /tmp/testfile.txt
+    $GBOT_ROOT_DIR/bin/gbot.sh
+}
+
+function stop
+{
+    echo "Stopping gbot"
+    killall $GBOT_ROOT_DIR/bin/gbot.sh
+}
+
 case "$1" in
     start)
-        echo "Starting gbot"
-        echo "TEST FILE CONTENT" > /tmp/testfile.txt
-        $GBOT_ROOT_DIR/bin/run_gunicorn.sh
+        start
         ;;
     stop)
-        echo "Stopping gbot"
-        killall gbotd
+        stop
+        ;;
+    restart)
+        stop
+        start
         ;;
     *)
         echo "Usage: /etc/init.d/servod start|stop"
