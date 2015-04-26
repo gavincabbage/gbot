@@ -12,14 +12,14 @@
 
 export GBOT_ROOT_DIR=/home/gbot/gbot
 
-function start
+start()
 {
     echo "Starting gbot"
     echo "TEST FILE CONTENT" > /tmp/testfile.txt
     $GBOT_ROOT_DIR/bin/gbotd.sh
 }
 
-function stop
+stop()
 {
     echo "Stopping gbot"
     killall $GBOT_ROOT_DIR/bin/gbotd.sh
