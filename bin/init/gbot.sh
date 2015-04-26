@@ -10,12 +10,13 @@
 # Description:       This file should be named to 'gbot' placed in /etc/init.d.
 ### END INIT INFO
 
+export GBOT_ROOT_DIR="/home/gbot/gbot"
+
 usage="Usage: /etc/init.d/servod start|stop|restart"
 initfile="/etc/init.d/gbot"
 exit_success=0
 exit_usage=1
 
-gbot_root_dir="/home/gbot/gbot"
 gbot_init_logfile="/tmp/gbot_init_log.txt"
 
 log()
