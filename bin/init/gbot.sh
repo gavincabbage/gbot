@@ -21,7 +21,7 @@ gbot_logfile="/tmp/gbot_log.txt"
 
 log()
 {
-    echo "${gbot_logfile}: $1" >> ${gbot_logfile} 2>&1
+    echo ${gbot_logfile}": $1" >> ${gbot_logfile} 2>&1
 }
 
 start()
@@ -45,7 +45,7 @@ case "$1" in
         stop
         ;;
     restart)
-        log "restarting.."
+        log "restarting..."
         stop
         start
         ;;
