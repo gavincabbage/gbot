@@ -45,7 +45,7 @@ case "$1" in
         stop
         ;;
     restart)
-        log "restarting.."
+        log "restarting..."
         stop
         start
         ;;
