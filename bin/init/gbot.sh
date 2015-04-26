@@ -17,23 +17,23 @@ initfile="/etc/init.d/gbot"
 exit_success=0
 exit_usage=1
 
-gbot_init_logfile="/tmp/gbot_init_log.txt"
+gbot_logfile="/tmp/gbot_log.txt"
 
 log()
 {
-    echo "$1" >> ${gbot_init_logfile} 2>&1
+    echo "$1" >> ${gbot_logfile} 2>&1
 }
 
 start()
 {
-    log ${gbot_init_logfile}": start"
-    ${GBOT_ROOT_DIR}/bin/gbotd.sh >> ${gbot_init_logfile} 2>&1
+    log ${gbot_logfile}": start"
+    ${GBOT_ROOT_DIR}/bin/gbotd.sh >> ${gbot_logfile} 2>&1
 }
 
 stop()
 {
-    log ${gbot_init_logfile}": stop"
-    killall gbotd.sh >> ${gbot_init_logfile} 2>&1
+    log ${gbot_logfile}": stop"
+    killall gbotd.sh >> ${gbot_logfile} 2>&1
     killall gunicorn
 }
 
@@ -45,7 +45,7 @@ case "$1" in
         stop
         ;;
     restart)
-        log ${gbot_init_logfile}": restart"
+        log ${gbot_logfile}": restart"
         stop
         start
         ;;
