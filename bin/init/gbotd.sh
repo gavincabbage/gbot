@@ -4,8 +4,8 @@
 # Provides:          gbot
 # Required-Start:    $local_fs $remote_fs $syslog $network $time
 # Required-Stop:     $local_fs $remote_fs $syslog $network $time
-# Default-Start:     3 4 5
-# Default-Stop:      0 1 2 6
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
 # Short-Description: gbot initscript
 # Description:       This file should be named to 'gbot' placed in /etc/init.d.
 ### END INIT INFO
@@ -27,7 +27,9 @@ log()
 start()
 {
     log "starting..."
-    ${GBOT_ROOT_DIR}/bin/gbotd.sh >> ${gbot_logfile} 2>&1 &
+    cd ${GBOT_ROOT_DIR}
+    venv/bin/gunicorn --timeout 3600 -w 2 -b 0.0.0.0:8088 --error-logfile - --access-logfile - web:app >> ${gbot_logfile} 2>&1 &
+
 }
 
 stop()
