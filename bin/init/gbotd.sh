@@ -1,7 +1,7 @@
 #! /bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          gbot
+# Provides:          gbotd
 # Required-Start:    $local_fs $remote_fs $syslog $network $time
 # Required-Stop:     $local_fs $remote_fs $syslog $network $time
 # Default-Start:     2 3 4 5
