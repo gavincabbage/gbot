@@ -14,28 +14,26 @@ export GBOT_ROOT_DIR="/home/gbot/gbot"
 
 usage="Usage: /etc/init.d/servod start|stop|restart"
 initfile="/etc/init.d/gbot"
+gbot_logfile="/tmp/gbot_log.txt"
 exit_success=0
 exit_usage=1
 
-gbot_logfile="/tmp/gbot_log.txt"
-
 log()
 {
-    echo ${gbot_logfile}": $1" >> ${gbot_logfile} 2>&1
+    echo ${initfile}": $1" >> ${gbot_logfile} 2>&1
 }
 
 start()
 {
     log "starting..."
     cd ${GBOT_ROOT_DIR}
-    venv/bin/gunicorn --timeout 3600 -w 2 -b 0.0.0.0:8088 --error-logfile - --access-logfile - web:app >> ${gbot_logfile} 2>&1 &
-
+    venv/bin/gunicorn --timeout 3600 -w 2 -b 0.0.0.0:8088 \
+            --error-logfile ${gbot_logfile} --access-logfile ${gbot_logfile} web:app &
 }
 
 stop()
 {
     log "stopping..."
-    killall gbotd.sh >> ${gbot_logfile} 2>&1
     killall gunicorn >> ${gbot_logfile} 2>&1
 }
 
@@ -53,7 +51,7 @@ case "$1" in
         ;;
     *)
         echo ${usage}
-        exit 1
+        exit ${exit_usage}
         ;;
 esac
 
