@@ -10,6 +10,10 @@ cp $GBOT_INIT/gbotd.sh $INIT_DIR/gbotd
 
 chmod 777 $INIT_DIR/gbotd
 
+# Install redis config.
+
+sudo cp $GBOT_ROOT_DIR/config/redis.conf /etc/redis/redis.conf
+
 # Set gbotd and redis to start on boot.
 
 update-rc.d gbotd defaults
