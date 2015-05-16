@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install gbot init script in /etc/init.d
+# Install gbotd init script in /etc/init.d
 
 GBOT_ROOT_DIR=/home/gbot/gbot
 GBOT_INIT=$GBOT_ROOT_DIR/bin/init
@@ -10,4 +10,7 @@ cp $GBOT_INIT/gbotd.sh $INIT_DIR/gbotd
 
 chmod 777 $INIT_DIR/gbotd
 
+# Set gbotd and redis to start on boot.
+
 update-rc.d gbotd defaults
+update-rc.d redis-server defaults
