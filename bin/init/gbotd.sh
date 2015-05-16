@@ -33,21 +33,21 @@ start()
             --error-logfile ${logfile} --access-logfile ${logfile} feed:app &
     feed_pid="$!"
     log "feed_pid=${feed_pid}"
-    redis-cli -p 8090 -n 0 set feed_pid "${feed_pid}"
+    redis-cli -p 8090 -n 0 set feed_pid "${feed_pid}" >> ${logfile} 2>&1
     
     log "starting web..."
     venv/bin/gunicorn --timeout 3600 -w 2 -b 0.0.0.0:8088 \
             --error-logfile ${logfile} --access-logfile ${logfile} web:app &
     web_pid="$!"
     log "web_pid=${web_pid}"
-    redis-cli -p 8090 -n 0 set web_pid "${web_pid}"
+    redis-cli -p 8090 -n 0 set web_pid "${web_pid}" >> ${logfile} 2>&1
 }
 
 stop()
 {
     log "stopping..."
-    feed_pid=`redis-cli -p 8090 -n 0 get feed_pid`
-    web_pid=`redis-cli -p 8090 -n 0 get web_pid`
+    feed_pid=`redis-cli -p 8090 -n 0 get feed_pid` >> ${logfile} 2>&1
+    web_pid=`redis-cli -p 8090 -n 0 get web_pid` >> ${logfile} 2>&1
     kill ${feed_pid} ${web_pid} >> ${logfile} 2>&1
 }
 
