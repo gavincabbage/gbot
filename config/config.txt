@@ -1,0 +1,11 @@
+SET debug true
+
+SET camera_enabled true
+SET i2c_enabled true
+SET distance_sensor_enabled true
+
+SET feed_timeout 18000
+SET feed_url http://10.0.0.100:9090/feed
+
+SET trig_pin 23
+SET echo_pin 24

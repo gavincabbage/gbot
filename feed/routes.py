@@ -11,4 +11,4 @@ def feed():
         return Response(generate_feed(Camera()),
                         mimetype='multipart/x-mixed-replace; boundary=frame')
     else:
-        return str(), 200
+        return str(), 204  # no content

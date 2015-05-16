@@ -1,17 +1,17 @@
 __all__ = ['app']
 
 
-from os import getenv
 from flask import Flask
-from redis import StrictRedis
+from externals.redis import RedisClient
 
 
 app = Flask(__name__)
 
-config_file = getenv('GBOT_ROOT_DIR') + '/config/base.py'
-app.config.from_pyfile(config_file)
-
-redis = StrictRedis(host='localhost', port=8090, db=0)
-redis.set('feed_started', 'true')
+redis = RedisClient(host='localhost', port=8090, db=0)
+app.config['DEBUG'] = redis.get_bool('debug')
+app.config['CAMERA_ENABLED'] = redis.get_bool('camera_enabled')
+app.config['FEED_TIMEOUT'] = redis.get_bool('feed_timeout')
 
 import feed.routes
+
+redis.set('feed_started', 'OK')
