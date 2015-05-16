@@ -2,7 +2,7 @@ __all__ = ['app']
 
 
 from flask import Flask
-from externals.redis import RedisClient
+from externals.redis_client import RedisClient
 
 
 app = Flask(__name__)
