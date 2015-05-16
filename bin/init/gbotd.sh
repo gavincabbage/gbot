@@ -46,6 +46,8 @@ start()
 stop()
 {
     log "stopping..."
+    log "feed_pid=${feed_pid}"
+    log "web_pid=${web_pid}"
     kill ${feed_pid} ${web_pid} >> ${logfile} 2>&1
 }
 
