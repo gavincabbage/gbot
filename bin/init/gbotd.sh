@@ -29,7 +29,7 @@ start()
     cd ${GBOT_ROOT_DIR}
     
     log "starting feed..."
-    venv/bin/gunicorn --timeout 3600 -w 2 -b 0.0.0.0:8088 \
+    venv/bin/gunicorn --timeout 3600 -w 2 -b 0.0.0.0:8089 \
             --error-logfile ${logfile} --access-logfile ${logfile} feed:app &
     feed_pid="$!"    
     
