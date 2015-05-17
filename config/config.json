@@ -1,0 +1,58 @@
+{
+  "core" : {
+    "enabled" : false,
+    "port" : 4282,
+    "i2c_enabled" : true,
+    "distance_sensor_enabled" : true,
+    "trig_pin" : 23,
+    "echo_ping" : 24,
+    "paths" : {
+      "look_center" : "/look/center",
+      "look_left" : "/look/left",
+      "look_right" : "/look/right",
+      "look_up" : "/look/up",
+      "look_down" : "/look/down",
+      "move_forward" : "/move/forward",
+      "move_back" : "/move/back",
+      "move_left" : "/move/left",
+      "move_right" : "/move/right",
+      "move_stop" : "/move/stop",
+      "distance" : "/distance"
+    },
+    "routes" : {
+      "look" : "/look/<string:direction>",
+      "move" : "/move/<string:direction>",
+      "distance" : "/distance"
+    }
+  },
+  "web" : {
+    "enabled" : true,
+    "port" : 4280,
+    "debug" : true,
+    "paths" : {
+      "root" : "/"
+    },
+    "routes" : {
+      "root" : "/"
+    }
+  },
+  "feed" : {
+    "enabled" : true,
+    "port" : 4281,
+    "debug" : true,
+    "camera_enabled" : true,
+    "timeout" : 18000,
+    "paths" : {
+      "root" : "/feed"
+    },
+    "routes" : {
+      "root" : "/feed"
+    }
+  },
+  "redis" : {
+    "enabled" : true,
+    "port" : 8090,
+    "host" : "localhost",
+    "db" : 0
+  }
+}

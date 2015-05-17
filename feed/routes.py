@@ -7,7 +7,7 @@ from feed import app
 def feed():
 
     if app.config['CAMERA_ENABLED']:
-        from externals.camera import generate_feed, Camera
+        from camera import generate_feed, Camera
         return Response(generate_feed(Camera()),
                         mimetype='multipart/x-mixed-replace; boundary=frame')
     else:
