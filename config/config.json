@@ -43,7 +43,7 @@
     "camera_enabled" : true,
     "timeout" : 18000,
     "paths" : {
-      "root" : "http://10.0.0.100/feed"
+      "root" : "http://10.0.0.100:8089/feed"
     },
     "routes" : {
       "root" : "/feed"
