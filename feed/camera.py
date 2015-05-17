@@ -31,7 +31,7 @@ import io
 import threading
 import picamera
 
-from web import app
+from feed import app
 
 
 def generate_feed(camera):
