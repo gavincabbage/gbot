@@ -14,7 +14,7 @@ app = Flask(__name__)
 redis = StrictRedis(host='localhost', port=8090, db=0)
 app.config['DEBUG'] = get_bool('feed.debug', redis)
 app.config['CAMERA_ENABLED'] = get_bool('feed.camera_enabled', redis)
-app.config['FEED_TIMEOUT'] = get_bool('feed.timeout', redis)
+app.config['FEED_TIMEOUT'] = int(redis.get('feed.timeout'))
 
 import feed.routes
 
