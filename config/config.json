@@ -5,7 +5,7 @@
     "i2c_enabled" : true,
     "distance_sensor_enabled" : true,
     "trig_pin" : 23,
-    "echo_ping" : 24,
+    "echo_pin" : 24,
     "paths" : {
       "look_center" : "/look/center",
       "look_left" : "/look/left",
