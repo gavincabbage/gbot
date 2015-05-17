@@ -6,7 +6,7 @@ from redis import StrictRedis
 
 
 def get_bool(key, r):
-    return r.get(key) == 'true'
+    return r.get(key) == 'True'
 
 
 app = Flask(__name__)
