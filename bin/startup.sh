@@ -17,7 +17,7 @@ start()
     cd ${GBOT_ROOT_DIR}
 
     log "loading config into reddis..."
-    venv/bin/python bin/load_redis.py config/config.json
+    venv/bin/python bin/load_redis.py config/config.json >> ${logfile} 2>&1
 
     log "starting feed..."
     venv/bin/gunicorn --timeout 3600 -w 2 -b 0.0.0.0:8089 \
