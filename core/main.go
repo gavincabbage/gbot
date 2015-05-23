@@ -24,14 +24,14 @@ func newRedisClient(host string) *redisClient {
 	return &redisClient{client, host}
 }
 func (r *redisClient) getString(key string) string {
-	val, err := r.client.Cmd("GET", "core.routes.look").Str()
+	val, err := r.client.Cmd("GET", key).Str()
 	if err != nil {
 		panic(fmt.Sprintf("could not get string value from redis for key '%s'", key))
 	}
 	return val
 }
 func (r *redisClient) getInt(key string) int {
-	val, err := r.client.Cmd("GET", "core.routes.look").Int()
+	val, err := r.client.Cmd("GET", key).Int()
 	if err != nil {
 		panic(fmt.Sprintf("could not get int value from redis for key '%s'", key))
 	}
