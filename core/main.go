@@ -26,13 +26,13 @@ var (
 
 func lookHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("ENTER lookHandler")
-	bus.WriteByte(0x04, 0x0e)
+	bus.WriteByte(arduino1, 0x0e)
 
 }
 
 func moveHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("ENTER moveHandler")
-	bus.WriteByte(0x04, 0x0a)
+	bus.WriteByte(arduino1, 0x0a)
 }
 
 func loadConfigFromRedis(r *redis.Client) {
