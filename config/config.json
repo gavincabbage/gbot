@@ -1,7 +1,7 @@
 {
   "core" : {
     "enabled" : false,
-    "hostname" : "localhost",
+    "hostname" : "0.0.0.0",
     "port" : 4282,
     "i2c" : {
       "enabled" : true,

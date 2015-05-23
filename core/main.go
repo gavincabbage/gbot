@@ -36,22 +36,10 @@ func moveHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func loadConfigFromRedis(r *redis.Client) {
-	var err error
-	
-	
 	a1, err := r.Cmd("GET", "core.i2c.addresses.arduino1").Int()
-	//bs := make([]byte, 8)
-    //binary.PutVarint(bs, int64(a1))
-    //fmt.Println(bs)
     arduino1 = byte(a1)
-	
-	
 	a2, err := r.Cmd("GET", "core.i2c.addresses.arduino2").Int()
-	//bs2 := make([]byte, 8)
-    //binary.PutVarint(bs2, int64(a2))
-    //fmt.Println(bs2)
 	arduino2 = byte(a2)
-	
 	lookRoute, err = r.Cmd("GET", "core.routes.look").Str()
 	moveRoute, err = r.Cmd("GET", "core.routes.move").Str()
 	hostname, err = r.Cmd("GET", "core.hostname").Str()
@@ -77,14 +65,6 @@ func main() {
 		panic(fmt.Sprintf("could not connect to redis @ '%s'", REDIS_HOST))
 	}
 	loadConfigFromRedis(r)
-	
-	fmt.Println("CONFIG:")
-	fmt.Println("arduino1", arduino1)
-	fmt.Println("arduino2", arduino2)
-	fmt.Println("lookRoute", lookRoute)
-	fmt.Println("moveRoute", moveRoute)
-	fmt.Println("hostname", hostname)
-	fmt.Println("port", port)
 	
 	bus = embd.NewI2CBus(1)
 	
