@@ -54,7 +54,7 @@
       "look_up" : {
         "code" : 23,
         "path" : "/look/up"
-      }
+      },
       "look_down" : {
         "code" : 24,
         "path" : "/look/down"
