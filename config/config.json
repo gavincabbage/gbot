@@ -1,8 +1,15 @@
 {
   "core" : {
     "enabled" : false,
+    "hostname" : "localhost",
     "port" : 4282,
-    "i2c_enabled" : true,
+    "i2c" : {
+      "enabled" : true,
+      "addresses" : {
+        "arduino1" : 4,
+        "arduino2" : 5
+      }
+    },
     "distance_sensor_enabled" : true,
     "trig_pin" : 23,
     "echo_pin" : 24,
@@ -20,8 +27,8 @@
       "distance" : "/distance"
     },
     "routes" : {
-      "look" : "/look/<string:direction>",
-      "move" : "/move/<string:direction>",
+      "look" : "/look/{direction}",
+      "move" : "/move/{direction}",
       "distance" : "/distance"
     }
   },
