@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"encoding/binary"
 	"fmt"
 	"net/http"
 	"github.com/gorilla/mux"
@@ -14,8 +15,8 @@ const REDIS_HOST string = "localhost:8090"
 
 var (
 	r redis.Client
-	arduino1 []byte
-	arduino2 []byte
+	arduino1 byte
+	arduino2 byte
 	lookRoute string
 	moveRoute string
 	hostname string
@@ -26,19 +27,32 @@ var (
 
 func lookHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("ENTER lookHandler")
-	bus.WriteByte(arduino1[0], 0x0e)
+	bus.WriteByte(arduino1, 0x0e)
 
 }
 
 func moveHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("ENTER moveHandler")
-	bus.WriteByte(arduino1[0], 0x0a)
+	bus.WriteByte(arduino1, 0x0a)
 }
 
 func loadConfigFromRedis(r *redis.Client) {
 	var err error
-	arduino1, err = r.Cmd("GET", "core.i2c.addresses.arduino1").Bytes()
-	arduino2, err = r.Cmd("GET", "core.i2c.addresses.arduino2").Bytes()
+	
+	
+	a1, err := r.Cmd("GET", "core.i2c.addresses.arduino1").Int()
+	bs := make([]byte, 4)
+    binary.PutVarint(bs, int64(a1))
+    fmt.Println(bs)
+    arduino1 = bs[0]
+	
+	
+	a2, err := r.Cmd("GET", "core.i2c.addresses.arduino2").Int()
+	bs2 := make([]byte, 4)
+    binary.PutVarint(bs2, int64(a2))
+    fmt.Println(bs2)
+	arduino2 = bs2[0]
+	
 	lookRoute, err = r.Cmd("GET", "core.routes.look").Str()
 	moveRoute, err = r.Cmd("GET", "core.routes.move").Str()
 	hostname, err = r.Cmd("GET", "core.hostname").Str()
