@@ -12,10 +12,43 @@ import (
 
 const REDIS_HOST string = "localhost:8090"
 
+type redisClient struct {
+	client *redis.Client
+	host string
+}
+func newRedisClient(host string) *redisClient {
+	client, err := redis.Dial("tcp", host)
+	if err != nil {
+		panic(fmt.Sprintf("could not reach redis @ '%s'", host))
+	}
+	return &redisClient{client, host}
+}
+func (r *redisClient) getString(key string) string {
+	val, err := r.client.Cmd("GET", "core.routes.look").Str()
+	if err != nil {
+		panic(fmt.Sprintf("could not get string value from redis for key '%s'", key))
+	}
+	return val
+}
+func (r *redisClient) getInt(key string) int {
+	val, err := r.client.Cmd("GET", "core.routes.look").Int()
+	if err != nil {
+		panic(fmt.Sprintf("could not get int value from redis for key '%s'", key))
+	}
+	return val
+}
+func (r *redisClient) getByte(key string) byte {
+	return byte(r.getInt(key))
+}
+
 var (
-	r redis.Client
+	r *redisClient
 	arduino1 byte
 	arduino2 byte
+	moveForward byte
+	moveBack byte
+	moveLeft, moveRight, moveStop byte
+	lookCenter, lookLeft, lookRight, lookUp, lookDown byte
 	lookRoute string
 	moveRoute string
 	hostname string
@@ -35,18 +68,18 @@ func moveHandler(w http.ResponseWriter, r *http.Request) {
 	bus.WriteByte(arduino1, 0x0a)
 }
 
-func loadConfigFromRedis(r *redis.Client) {
-	a1, err := r.Cmd("GET", "core.i2c.addresses.arduino1").Int()
-    arduino1 = byte(a1)
-	a2, err := r.Cmd("GET", "core.i2c.addresses.arduino2").Int()
-	arduino2 = byte(a2)
-	lookRoute, err = r.Cmd("GET", "core.routes.look").Str()
-	moveRoute, err = r.Cmd("GET", "core.routes.move").Str()
-	hostname, err = r.Cmd("GET", "core.hostname").Str()
-	port, err = r.Cmd("GET", "core.port").Str()
-	if err != nil {
-		panic(fmt.Sprintf("problem loading config from redis @ '%s'", REDIS_HOST))
-	}
+func getByteFromRedis(key string, r *redis.Client) (byte, error) {
+	i, err := r.Cmd("GET", key).Int()
+	return byte(i), err
+}
+
+func loadConfigFromRedis(r *redisClient) {
+	arduino1 = r.getByte("core.i2c.addresses.arduino1")
+	arduino2 = r.getByte("core.i2c.addresses.arduino2")
+	lookRoute = r.getString("core.routes.look")
+	moveRoute = r.getString("core.routes.move")
+	hostname = r.getString("core.hostname")
+	port = r.getString("core.port")
 }
 
 func errorHandler() {
@@ -60,10 +93,7 @@ func main() {
 	
 	defer errorHandler()
 	
-	r, err := redis.Dial("tcp", REDIS_HOST)
-	if err != nil {
-		panic(fmt.Sprintf("could not connect to redis @ '%s'", REDIS_HOST))
-	}
+	r = newRedisClient(REDIS_HOST)
 	loadConfigFromRedis(r)
 	
 	bus = embd.NewI2CBus(1)
