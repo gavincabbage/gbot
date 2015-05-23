@@ -69,6 +69,7 @@ func lookHandler(w http.ResponseWriter, r *http.Request) {
 		bus.WriteByte(arduino2, lookDown)
 	}
 
+	w.Write(nil)
 }
 
 func moveHandler(w http.ResponseWriter, r *http.Request) {
@@ -87,7 +88,8 @@ func moveHandler(w http.ResponseWriter, r *http.Request) {
 	case "back":
 		bus.WriteByte(arduino1, moveRight)
 	}
-	
+
+	w.Write(nil)	
 }
 
 func getByteFromRedis(key string, r *redis.Client) (byte, error) {

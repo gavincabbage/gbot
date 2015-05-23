@@ -1,6 +1,6 @@
 function simple_command(command, direction)
 {
-    var url = "/" + command + "/" + direction;
+    var url = "10.0.0.100:4282/" + command + "/" + direction;
     var xmlHttp = new XMLHttpRequest();
 
     xmlHttp.onreadystatechange = function()
