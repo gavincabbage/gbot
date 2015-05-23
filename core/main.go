@@ -42,30 +42,52 @@ func (r *redisClient) getByte(key string) byte {
 }
 
 var (
-	r *redisClient
-	arduino1 byte
-	arduino2 byte
-	moveForward byte
-	moveBack byte
-	moveLeft, moveRight, moveStop byte
+	arduino1, arduino2 byte
+	moveForward, moveBack, moveLeft, moveRight, moveStop byte
 	lookCenter, lookLeft, lookRight, lookUp, lookDown byte
-	lookRoute string
-	moveRoute string
-	hostname string
-	port string
+	lookRoute, moveRoute string
+	hostname, port string
+	rc *redisClient
 	bus embd.I2CBus
 	router *mux.Router
 )
 
 func lookHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("ENTER lookHandler")
-	bus.WriteByte(arduino1, 0x0e)
+	
+	direction := mux.Vars(r)["direction"]
+	switch direction {
+	case "center":
+		bus.WriteByte(arduino2, lookCenter)
+	case "left":
+		bus.WriteByte(arduino2, lookLeft)
+	case "right":
+		bus.WriteByte(arduino2, lookRight)
+	case "up":
+		bus.WriteByte(arduino2, lookUp)
+	case "down":
+		bus.WriteByte(arduino2, lookDown)
+	}
 
 }
 
 func moveHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("ENTER moveHandler")
-	bus.WriteByte(arduino1, 0x0a)
+
+	direction := mux.Vars(r)["direction"]
+	switch direction {
+	case "stop":
+		bus.WriteByte(arduino1, moveStop)
+	case "left":
+		bus.WriteByte(arduino1, moveLeft)
+	case "right":
+		bus.WriteByte(arduino1, moveRight)
+	case "forward":
+		bus.WriteByte(arduino1, moveForward)
+	case "back":
+		bus.WriteByte(arduino1, moveRight)
+	}
+	
 }
 
 func getByteFromRedis(key string, r *redis.Client) (byte, error) {
@@ -76,6 +98,16 @@ func getByteFromRedis(key string, r *redis.Client) (byte, error) {
 func loadConfigFromRedis(r *redisClient) {
 	arduino1 = r.getByte("core.i2c.addresses.arduino1")
 	arduino2 = r.getByte("core.i2c.addresses.arduino2")
+	moveForward = r.getByte("core.i2c.commands.move_forward")
+	moveBack = r.getByte("core.i2c.commands.move_back")
+	moveLeft = r.getByte("core.i2c.commands.move_left")
+	moveRight = r.getByte("core.i2c.commands.move_right")
+	moveStop = r.getByte("core.i2c.commands.move_stop")
+	lookCenter = r.getByte("core.i2c.commands.look_center")
+	lookLeft = r.getByte("core.i2c.commands.look_left")
+	lookRight = r.getByte("core.i2c.commands.look_right")
+	lookUp = r.getByte("core.i2c.commands.look_up")
+	lookDown = r.getByte("core.i2c.commands.look_down")
 	lookRoute = r.getString("core.routes.look")
 	moveRoute = r.getString("core.routes.move")
 	hostname = r.getString("core.hostname")
@@ -93,8 +125,8 @@ func main() {
 	
 	defer errorHandler()
 	
-	r = newRedisClient(REDIS_HOST)
-	loadConfigFromRedis(r)
+	rc = newRedisClient(REDIS_HOST)
+	loadConfigFromRedis(rc)
 	
 	bus = embd.NewI2CBus(1)
 	
