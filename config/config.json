@@ -8,40 +8,57 @@
       "addresses" : {
         "arduino1" : 4,
         "arduino2" : 5
-      },
-      "commands" : {
-        "move_forward" : 10,
-        "move_back" : 11,
-        "move_left" : 12,
-        "move_right" : 13,
-        "move_stop" : 14,
-        "look_center" : 20,
-        "look_left" : 21,
-        "look_right" : 22,
-        "look_up" : 23,
-        "look_down" : 24
       }
     },
     "distance_sensor_enabled" : true,
     "trig_pin" : 23,
     "echo_pin" : 24,
-    "paths" : {
-      "look_center" : "/look/center",
-      "look_left" : "/look/left",
-      "look_right" : "/look/right",
-      "look_up" : "/look/up",
-      "look_down" : "/look/down",
-      "move_forward" : "/move/forward",
-      "move_back" : "/move/back",
-      "move_left" : "/move/left",
-      "move_right" : "/move/right",
-      "move_stop" : "/move/stop",
-      "distance" : "/distance"
-    },
     "routes" : {
       "look" : "/look/{direction}",
       "move" : "/move/{direction}",
       "distance" : "/distance"
+    },
+    "commands" : {
+      "move_forward" : {
+        "code" : 10,
+        "path" : "/move/forward"
+      },
+      "move_back" : {
+        "code" : 11,
+        "path" : "/move/back"
+      },
+      "move_left" : {
+        "code" : 12,
+        "path" : "/move/left"
+      },
+      "move_right" : {
+        "code" : 13,
+        "path" : "/move/right"
+      },
+      "move_stop" : {
+        "code" : 14,
+        "path" : "/move/stop"
+      },
+      "look_center" : {
+        "code" : 20,
+        "path" : "/look/center"
+      },
+      "look_left" : {
+        "code" : 21,
+        "path" : "/look/left"
+      },
+      "look_right" : {
+        "code" : 22,
+        "path" : "/look/right"
+      },
+      "look_up" : {
+        "code" : 23,
+        "path" : "/look/up"
+      }
+      "look_down" : {
+        "code" : 24,
+        "path" : "/look/down"
+      }
     }
   },
   "web" : {
