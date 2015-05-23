@@ -8,6 +8,18 @@
       "addresses" : {
         "arduino1" : 4,
         "arduino2" : 5
+      },
+      "commands" : {
+        "move_forward" : 10,
+        "move_back" : 11,
+        "move_left" : 12,
+        "move_right" : 13,
+        "move_stop" : 14,
+        "look_center" : 20,
+        "look_left" : 21,
+        "look_right" : 22,
+        "look_up" : 23,
+        "look_down" : 24
       }
     },
     "distance_sensor_enabled" : true,
