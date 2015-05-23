@@ -41,14 +41,14 @@ func loadConfigFromRedis(r *redis.Client) {
 	
 	
 	a1, err := r.Cmd("GET", "core.i2c.addresses.arduino1").Int()
-	bs := make([]byte, 4)
+	bs := make([]byte, 8)
     binary.PutVarint(bs, int64(a1))
     fmt.Println(bs)
     arduino1 = bs[0]
 	
 	
 	a2, err := r.Cmd("GET", "core.i2c.addresses.arduino2").Int()
-	bs2 := make([]byte, 4)
+	bs2 := make([]byte, 8)
     binary.PutVarint(bs2, int64(a2))
     fmt.Println(bs2)
 	arduino2 = bs2[0]
