@@ -2,8 +2,8 @@
 
 ### BEGIN INIT INFO
 # Provides:          gbotd
-# Required-Start:    $local_fs $remote_fs $syslog $network $time $redis-server
-# Required-Stop:     $local_fs $remote_fs $syslog $network $time $redis-server
+# Required-Start:    $local_fs $remote_fs $syslog $network $time $redis-server $nginx
+# Required-Stop:     $local_fs $remote_fs $syslog $network $time $redis-server $nginx
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: gbotd initscript
