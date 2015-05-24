@@ -10,7 +10,7 @@
         "arduino2" : 5
       }
     },
-    "distance_sensor_enabled" : true,
+    "distance_sensor_enabled" : false,
     "trig_pin" : 23,
     "echo_pin" : 24,
     "routes" : {

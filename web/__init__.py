@@ -1,4 +1,4 @@
-__all__ = ['app', 'serial_controller', 'distance_sensor']
+__all__ = ['app', 'distance_sensor']
 
 
 from flask import Flask
