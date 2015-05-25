@@ -1,27 +1,67 @@
-html {
-    background: #555;
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+.pure-g > div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.l-box {
+    padding: 1em;
+}
+
+#header {
+    background: white;
+    border: 1px solid black;
+}
+
+#header #main-header {
+    font-family: courier, 'courier new', monospace;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+#header #sub-header {
+    font-family: courier, 'courier new', monospace;
+    font-size: 20px;
+    font-weight: normal;
 }
 
 #content {
-    background: red;
+    font-size: 0pt;
 }
 
-#content #header {
-    background: yellow;
+#content #left-menu {
+    font-size: 12pt;
+}
+
+#content .custom-restricted-width {
+    /* To limit the menu width to the content of the menu: */
+    display: inline-block;
+    /* Or set the width explicitly: */
+    /* width: 10em; */
 }
 
 #content #control-panel {
-    background: orange;
+    font-size: 12pt;
 }
 
 #content #stream-panel {
-    background: blue;
+    font-size: 0pt;
 }
 
 #content #stream-panel #stream-window {
     background: #000;
 }
 
-#content #footer {
+#content #stream-panel #stream-window {
+    height: 240px;
+    width: 320px;
+}
+
+#content #other-control {
+    font-size: 12pt;
     background: green;
 }
