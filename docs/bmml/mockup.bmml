@@ -1,143 +1,184 @@
-<mockup version="1.0" skin="wireframe" fontFace="Balsamiq Sans" measuredW="1670" measuredH="610" mockupW="1654" mockupH="600">
+<mockup version="1.0" skin="wireframe" fontFace="Balsamiq Sans" measuredW="1821" measuredH="617" mockupW="1706" mockupH="601">
   <controls>
-    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="16" y="10" w="800" h="600" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="115" y="17" w="800" h="600" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
         <text>A%20Web%20Page%0Ahttp%3A//gbot</text>
+        <verticalScrollbar>false</verticalScrollbar>
       </controlProperties>
     </control>
-    <control controlID="1" controlTypeID="com.balsamiq.mockups::Canvas" x="116" y="82" w="600" h="450" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1"/>
-    <control controlID="2" controlTypeID="com.balsamiq.mockups::Image" x="381" y="145" w="320" h="240" measuredW="77" measuredH="79" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Image" x="670" y="215" w="220" h="160" measuredW="77" measuredH="79" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <text>feed</text>
       </controlProperties>
     </control>
-    <control controlID="3" controlTypeID="com.balsamiq.mockups::ButtonBar" x="131" y="125" w="-1" h="-1" measuredW="185" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::List" x="115" y="201" w="150" h="297" measuredW="100" measuredH="131" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Interactive%2C%20Autonomous</text>
+        <text>HEADER%0AAutonomous%0AInteractive%0ASUBHEADER%0AReports%0AConfiguration</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::Canvas" x="131" y="145" w="235" h="370" measuredW="100" measuredH="70" zOrder="4" locked="false" isInGroup="-1"/>
-    <control controlID="5" controlTypeID="com.balsamiq.mockups::SubTitle" x="636" y="97" w="-1" h="-1" measuredW="65" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Canvas" x="115" y="89" w="800" h="112" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Canvas" x="265" y="201" w="381" h="297" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::Canvas" x="646" y="201" w="269" h="297" measuredW="100" measuredH="70" zOrder="4" locked="false" isInGroup="-1"/>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::Label" x="155" y="125" w="-1" h="-1" measuredW="71" measuredH="40" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>GBOT</text>
+        <bold>true</bold>
+        <size>32</size>
+        <text>gbot</text>
       </controlProperties>
     </control>
-    <control controlID="6" controlTypeID="com.balsamiq.mockups::ButtonBar" x="615" y="384" w="-1" h="-1" measuredW="86" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::Button" x="405" y="243" w="-1" h="-1" measuredW="69" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>On%2C%20Off</text>
+        <text>Forward</text>
       </controlProperties>
     </control>
-    <control controlID="7" controlTypeID="com.balsamiq.mockups::ButtonBar" x="381" y="384" w="-1" h="-1" measuredW="133" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::Button" x="405" y="291" w="69" h="24" measuredW="50" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
-        <selectedIndex>-1</selectedIndex>
-        <text>%3C%2C%20Center%2C%20%3E</text>
+        <text>Back</text>
       </controlProperties>
     </control>
-    <control controlID="8" controlTypeID="com.balsamiq.mockups::Button" x="226" y="214" w="45" h="24" measuredW="45" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::Button" x="405" y="267" w="69" h="24" measuredW="49" measuredH="24" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
-        <icon>UpArrowIcon%7Csmall</icon>
+        <text>Stop</text>
+      </controlProperties>
+    </control>
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Button" x="337" y="267" w="68" h="24" measuredW="46" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Left</text>
+      </controlProperties>
+    </control>
+    <control controlID="70" controlTypeID="com.balsamiq.mockups::Button" x="474" y="267" w="68" h="24" measuredW="53" measuredH="24" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Right</text>
+      </controlProperties>
+    </control>
+    <control controlID="71" controlTypeID="com.balsamiq.mockups::Button" x="405" y="362" w="69" h="24" measuredW="38" measuredH="24" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Up</text>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::Button" x="405" y="410" w="69" h="24" measuredW="54" measuredH="24" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Down</text>
+      </controlProperties>
+    </control>
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::Button" x="405" y="386" w="69" h="24" measuredW="63" measuredH="24" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Center</text>
+      </controlProperties>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::Button" x="337" y="386" w="68" h="24" measuredW="46" measuredH="24" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Left</text>
+      </controlProperties>
+    </control>
+    <control controlID="75" controlTypeID="com.balsamiq.mockups::Button" x="474" y="386" w="68" h="24" measuredW="53" measuredH="24" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Right</text>
+      </controlProperties>
+    </control>
+    <control controlID="76" controlTypeID="com.balsamiq.mockups::Label" x="293" y="215" w="-1" h="-1" measuredW="112" measuredH="21" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Movement%20controls</text>
+      </controlProperties>
+    </control>
+    <control controlID="77" controlTypeID="com.balsamiq.mockups::Label" x="293" y="339" w="-1" h="-1" measuredW="80" measuredH="21" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Look%20controls</text>
+      </controlProperties>
+    </control>
+    <control controlID="78" controlTypeID="com.balsamiq.mockups::Image" x="813" y="109" w="77" h="73" measuredW="77" measuredH="79" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>pic</text>
+      </controlProperties>
+    </control>
+    <control controlID="79" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="1021" y="16" w="800" h="600" measuredW="450" measuredH="400" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>A%20Web%20Page%0Ahttp%3A//gbot</text>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="80" controlTypeID="com.balsamiq.mockups::List" x="770" y="168" w="150" h="297" measuredW="100" measuredH="131" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>HEADER%0AAutonomous%0AInteractive%0ASUBHEADER%0AReports%0AConfiguration</text>
+      </controlProperties>
+    </control>
+    <control controlID="81" controlTypeID="com.balsamiq.mockups::Canvas" x="1021" y="88" w="800" h="119" measuredW="100" measuredH="70" zOrder="23" locked="false" isInGroup="-1"/>
+    <control controlID="82" controlTypeID="com.balsamiq.mockups::Canvas" x="1298" y="201" w="248" h="297" measuredW="100" measuredH="70" zOrder="22" locked="false" isInGroup="-1"/>
+    <control controlID="84" controlTypeID="com.balsamiq.mockups::Image" x="1311" y="215" w="220" h="160" measuredW="77" measuredH="79" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>feed</text>
+      </controlProperties>
+    </control>
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::Label" x="1061" y="124" w="-1" h="-1" measuredW="71" measuredH="40" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>32</size>
+        <text>gbot</text>
+      </controlProperties>
+    </control>
+    <control controlID="86" controlTypeID="com.balsamiq.mockups::Button" x="1341" y="386" w="30" h="30" measuredW="45" measuredH="24" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>ShiftIcon%7Csmall</icon>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="9" controlTypeID="com.balsamiq.mockups::Button" x="226" y="292" w="-1" h="-1" measuredW="45" measuredH="24" zOrder="9" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>DownArrowIcon%7Csmall</icon>
-        <text/>
-      </controlProperties>
-    </control>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::Button" x="286" y="253" w="-1" h="-1" measuredW="45" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>RightArrowIcon%7Csmall</icon>
-        <text/>
-      </controlProperties>
-    </control>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::Button" x="166" y="253" w="-1" h="-1" measuredW="45" measuredH="24" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::Button" x="1311" y="416" w="30" h="30" measuredW="45" measuredH="24" zOrder="27" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>LeftArrowIcon%7Csmall</icon>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="12" controlTypeID="com.balsamiq.mockups::Button" x="226" y="253" w="-1" h="-1" measuredW="45" measuredH="24" zOrder="12" locked="false" isInGroup="-1">
+    <control controlID="98" controlTypeID="com.balsamiq.mockups::Image" x="1719" y="108" w="77" h="73" measuredW="77" measuredH="79" zOrder="28" locked="false" isInGroup="-1">
       <controlProperties>
-        <icon>GeoLocationIcon%7Csmall</icon>
+        <text>pic</text>
+      </controlProperties>
+    </control>
+    <control controlID="99" controlTypeID="com.balsamiq.mockups::Button" x="1341" y="416" w="30" h="30" measuredW="45" measuredH="24" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>CircledXIcon%7Csmall</icon>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="15" controlTypeID="com.balsamiq.mockups::Button" x="672" y="420" w="29" h="24" measuredW="37" measuredH="24" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="100" controlTypeID="com.balsamiq.mockups::Button" x="1341" y="447" w="30" h="30" measuredW="45" measuredH="24" zOrder="30" locked="false" isInGroup="-1">
       <controlProperties>
-        <icon>ReloadIcon%7Cxsmall</icon>
-        <menuIcon>false</menuIcon>
+        <icon>DownArrowIcon%7Csmall</icon>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::Canvas" x="381" y="420" w="320" h="95" measuredW="100" measuredH="70" zOrder="13" locked="false" isInGroup="-1"/>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::Paragraph" x="394" y="427" w="295" h="80" measuredW="275" measuredH="80" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="101" controlTypeID="com.balsamiq.mockups::Button" x="1371" y="416" w="30" h="30" measuredW="45" measuredH="24" zOrder="31" locked="false" isInGroup="-1">
       <controlProperties>
-        <size>12</size>
-        <text>%26Status%20Report%26%0A%20%0AMotors%3A%20_OK%20-%20Moving%20forward_%0ACamera%3A%20_OK%20-%20Streaming%20enabled_%0AServo%3A%20_OK%20-%20Panned%200%20degrees_</text>
-      </controlProperties>
-    </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="870" y="10" w="800" h="600" measuredW="450" measuredH="400" zOrder="16" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>A%20Web%20Page%0Ahttp%3A//gbot</text>
-      </controlProperties>
-    </control>
-    <control controlID="35" controlTypeID="com.balsamiq.mockups::Canvas" x="970" y="82" w="600" h="450" measuredW="100" measuredH="70" zOrder="17" locked="false" isInGroup="-1"/>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::Image" x="1235" y="145" w="320" h="240" measuredW="77" measuredH="79" zOrder="18" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>feed</text>
-      </controlProperties>
-    </control>
-    <control controlID="37" controlTypeID="com.balsamiq.mockups::ButtonBar" x="985" y="125" w="-1" h="-1" measuredW="185" measuredH="21" zOrder="19" locked="false" isInGroup="-1">
-      <controlProperties>
-        <selectedIndex>1</selectedIndex>
-        <text>Interactive%2C%20Autonomous</text>
-      </controlProperties>
-    </control>
-    <control controlID="38" controlTypeID="com.balsamiq.mockups::Canvas" x="985" y="145" w="235" h="370" measuredW="100" measuredH="70" zOrder="20" locked="false" isInGroup="-1"/>
-    <control controlID="39" controlTypeID="com.balsamiq.mockups::SubTitle" x="1490" y="97" w="-1" h="-1" measuredW="65" measuredH="27" zOrder="21" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>GBOT</text>
-      </controlProperties>
-    </control>
-    <control controlID="40" controlTypeID="com.balsamiq.mockups::ButtonBar" x="1469" y="384" w="-1" h="-1" measuredW="86" measuredH="21" zOrder="22" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>On%2C%20Off</text>
-      </controlProperties>
-    </control>
-    <control controlID="41" controlTypeID="com.balsamiq.mockups::ButtonBar" x="1235" y="384" w="-1" h="-1" measuredW="133" measuredH="21" zOrder="23" locked="false" isInGroup="-1">
-      <controlProperties>
-        <selectedIndex>-1</selectedIndex>
-        <text>%3C%2C%20Center%2C%20%3E</text>
-      </controlProperties>
-    </control>
-    <control controlID="47" controlTypeID="com.balsamiq.mockups::Canvas" x="1235" y="420" w="320" h="95" measuredW="100" measuredH="70" zOrder="24" locked="false" isInGroup="-1"/>
-    <control controlID="48" controlTypeID="com.balsamiq.mockups::Button" x="1526" y="420" w="29" h="24" measuredW="37" measuredH="24" zOrder="25" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>ReloadIcon%7Cxsmall</icon>
-        <menuIcon>false</menuIcon>
+        <icon>RightArrowIcon%7Csmall</icon>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="49" controlTypeID="com.balsamiq.mockups::Paragraph" x="1248" y="427" w="295" h="80" measuredW="275" measuredH="80" zOrder="26" locked="false" isInGroup="-1">
+    <control controlID="102" controlTypeID="com.balsamiq.mockups::Button" x="1471" y="386" w="30" h="30" measuredW="45" measuredH="24" zOrder="32" locked="false" isInGroup="-1">
       <controlProperties>
-        <size>12</size>
-        <text>%26Status%20Report%26%0A%20%0AMotors%3A%20_OK%20-%20Moving%20forward_%0ACamera%3A%20_OK%20-%20Streaming%20enabled_%0AServo%3A%20_OK%20-%20Panned%200%20degrees_</text>
+        <icon>ShiftIcon%7Csmall</icon>
+        <text/>
       </controlProperties>
     </control>
-    <control controlID="51" controlTypeID="com.balsamiq.mockups::ComboBox" x="1004" y="190" w="197" h="-1" measuredW="124" measuredH="24" zOrder="27" locked="false" isInGroup="-1">
+    <control controlID="103" controlTypeID="com.balsamiq.mockups::Button" x="1441" y="416" w="30" h="30" measuredW="45" measuredH="24" zOrder="33" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Choose%20a%20task...</text>
+        <icon>LeftArrowIcon%7Csmall</icon>
+        <text/>
       </controlProperties>
     </control>
-    <control controlID="54" controlTypeID="com.balsamiq.mockups::Button" x="1004" y="238" w="-1" h="-1" measuredW="45" measuredH="24" zOrder="28" locked="false" isInGroup="-1">
+    <control controlID="104" controlTypeID="com.balsamiq.mockups::Button" x="1471" y="416" w="30" h="30" measuredW="45" measuredH="24" zOrder="34" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Run</text>
+        <icon>CircledXIcon%7Csmall</icon>
+        <text/>
       </controlProperties>
     </control>
-    <control controlID="55" controlTypeID="com.balsamiq.mockups::Button" x="1152" y="238" w="-1" h="-1" measuredW="49" measuredH="24" zOrder="29" locked="false" isInGroup="-1">
+    <control controlID="105" controlTypeID="com.balsamiq.mockups::Button" x="1471" y="447" w="30" h="30" measuredW="45" measuredH="24" zOrder="35" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Stop</text>
+        <icon>DownArrowIcon%7Csmall</icon>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="106" controlTypeID="com.balsamiq.mockups::Button" x="1501" y="416" w="30" h="30" measuredW="45" measuredH="24" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>RightArrowIcon%7Csmall</icon>
+        <text/>
       </controlProperties>
     </control>
   </controls>
