@@ -46,7 +46,5 @@ router.get('/', function(req, res, next) {
 
 var app = express();
 app.use(express.static(path.join(__dirname, 'static')));
-
 app.use('/', router);
-
 module.exports = app;
