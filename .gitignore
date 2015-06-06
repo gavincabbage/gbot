@@ -2,7 +2,7 @@
 .DS_Store
 *.pyc
 *build-uno*
-/venv
+venv/
 .idea
 .idea/
 *.pyc
