@@ -10,7 +10,25 @@ import (
 	_ "github.com/kidoman/embd/host/rpi"
 )
 
-const REDIS_HOST string = "localhost:8090"
+const (
+	REDIS_HOST string = "localhost:8090",
+)
+
+var moves map[string]int = map[string]int{
+	"forward" : 10,
+	"back" : 11,
+	"left" : 12,
+	"right" : 13,
+	"stop" : 14,
+}
+
+var looks map[string]int = map[string]int{
+	"center" : 20,
+	"left" : 21,
+	"right" : 22,
+	"up" : 23,
+	"down" : 24,
+}
 
 type redisClient struct {
 	client *redis.Client
@@ -100,16 +118,6 @@ func getByteFromRedis(key string, r *redis.Client) (byte, error) {
 func loadConfigFromRedis(r *redisClient) {
 	arduino1 = r.getByte("core.i2c.addresses.arduino1")
 	arduino2 = r.getByte("core.i2c.addresses.arduino2")
-	moveForward = r.getByte("core.commands.move_forward.code")
-	moveBack = r.getByte("core.commands.move_back.code")
-	moveLeft = r.getByte("core.commands.move_left.code")
-	moveRight = r.getByte("core.commands.move_right.code")
-	moveStop = r.getByte("core.commands.move_stop.code")
-	lookCenter = r.getByte("core.commands.look_center.code")
-	lookLeft = r.getByte("core.commands.look_left.code")
-	lookRight = r.getByte("core.commands.look_right.code")
-	lookUp = r.getByte("core.commands.look_up.code")
-	lookDown = r.getByte("core.commands.look_down.code")
 	lookRoute = r.getString("core.routes.look")
 	moveRoute = r.getString("core.routes.move")
 	hostname = r.getString("core.hostname")

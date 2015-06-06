@@ -1,7 +1,7 @@
 {
   "core" : {
-    "enabled" : false,
-    "hostname" : "0.0.0.0",
+    "enabled" : true,
+    "host" : "127.0.0.1",
     "port" : 4282,
     "i2c" : {
       "enabled" : true,
@@ -10,75 +10,33 @@
         "arduino2" : 5
       }
     },
-    "distance_sensor_enabled" : false,
-    "trig_pin" : 23,
-    "echo_pin" : 24,
+    "distance_sensor" : {
+      "enabled" : false,
+      "trig_pin" : 23,
+      "echo_pin" : 24
+    },
     "routes" : {
       "look" : "/look/{direction}",
       "move" : "/move/{direction}",
       "distance" : "/distance"
-    },
-    "commands" : {
-      "move_forward" : {
-        "code" : 10,
-        "path" : "/move/forward"
-      },
-      "move_back" : {
-        "code" : 11,
-        "path" : "/move/back"
-      },
-      "move_left" : {
-        "code" : 12,
-        "path" : "/move/left"
-      },
-      "move_right" : {
-        "code" : 13,
-        "path" : "/move/right"
-      },
-      "move_stop" : {
-        "code" : 14,
-        "path" : "/move/stop"
-      },
-      "look_center" : {
-        "code" : 20,
-        "path" : "/look/center"
-      },
-      "look_left" : {
-        "code" : 21,
-        "path" : "/look/left"
-      },
-      "look_right" : {
-        "code" : 22,
-        "path" : "/look/right"
-      },
-      "look_up" : {
-        "code" : 23,
-        "path" : "/look/up"
-      },
-      "look_down" : {
-        "code" : 24,
-        "path" : "/look/down"
-      }
     }
   },
   "web" : {
     "enabled" : true,
+    "host" : "127.0.0.1",
     "port" : 4280,
-    "paths" : {
-      "root" : "/"
-    },
     "routes" : {
       "root" : "/"
     }
   },
   "feed" : {
     "enabled" : true,
+    "host" : "127.0.0.1",
     "port" : 4281,
     "debug" : true,
-    "camera_enabled" : true,
-    "timeout" : 18000,
-    "paths" : {
-      "root" : "/feed"
+    "camera" : {
+      "enabled": true,
+      "timeout": 18000
     },
     "routes" : {
       "root" : "/feed"
@@ -86,8 +44,8 @@
   },
   "redis" : {
     "enabled" : true,
-    "port" : 8090,
-    "host" : "localhost",
+    "port" : 4290,
+    "host" : "127.0.0.1",
     "db" : 0
   }
 }

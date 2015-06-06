@@ -11,11 +11,11 @@ def get_bool(key, r):
 
 app = Flask(__name__)
 
-redis = StrictRedis(host='localhost', port=8090, db=0)
+redis = StrictRedis(host='127.0.0.1', port=4290, db=0)
 app.config['DEBUG'] = get_bool('feed.debug', redis)
-app.config['CAMERA_ENABLED'] = get_bool('feed.camera_enabled', redis)
-app.config['FEED_TIMEOUT'] = int(redis.get('feed.timeout'))
+app.config['CAMERA_ENABLED'] = get_bool('feed.camera.enabled', redis)
+app.config['TIMEOUT'] = int(redis.get('feed.camera.timeout'))
 
 import feed.routes
 
-redis.set('feed_started', 'OK')
+redis.set('feed.started', 'OK')
