@@ -11,10 +11,10 @@ import (
 )
 
 const (
-	REDIS_HOST string = "localhost:8090",
+	REDIS_HOST string = "127.0.0.1:4290"
 )
 
-var moves map[string]int = map[string]int{
+var MOVE map[string]byte = map[string]byte{
 	"forward" : 10,
 	"back" : 11,
 	"left" : 12,
@@ -22,7 +22,7 @@ var moves map[string]int = map[string]int{
 	"stop" : 14,
 }
 
-var looks map[string]int = map[string]int{
+var LOOK map[string]byte = map[string]byte{
 	"center" : 20,
 	"left" : 21,
 	"right" : 22,
@@ -72,41 +72,15 @@ var (
 
 func lookHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("ENTER lookHandler")
-	
 	direction := mux.Vars(r)["direction"]
-	switch direction {
-	case "center":
-		bus.WriteByte(arduino2, lookCenter)
-	case "left":
-		bus.WriteByte(arduino2, lookLeft)
-	case "right":
-		bus.WriteByte(arduino2, lookRight)
-	case "up":
-		bus.WriteByte(arduino2, lookUp)
-	case "down":
-		bus.WriteByte(arduino2, lookDown)
-	}
-
+	bus.WriteByte(arduino2, LOOK[direction])
 	w.Write(nil)
 }
 
 func moveHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("ENTER moveHandler")
-
 	direction := mux.Vars(r)["direction"]
-	switch direction {
-	case "stop":
-		bus.WriteByte(arduino1, moveStop)
-	case "left":
-		bus.WriteByte(arduino1, moveLeft)
-	case "right":
-		bus.WriteByte(arduino1, moveRight)
-	case "forward":
-		bus.WriteByte(arduino1, moveForward)
-	case "back":
-		bus.WriteByte(arduino1, moveRight)
-	}
-
+	bus.WriteByte(arduino1, MOVE[direction])
 	w.Write(nil)	
 }
 

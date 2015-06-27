@@ -44,8 +44,8 @@
   },
   "redis" : {
     "enabled" : true,
-    "port" : 4290,
     "host" : "127.0.0.1",
+    "port" : 4290,
     "db" : 0
   }
 }
